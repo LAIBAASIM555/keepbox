@@ -205,6 +205,14 @@
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
+        @keyframes scroll-rtl {
+            from { transform: translateX(0); }
+            to { transform: translateX(50%); }
+        }
+        /* Enable RTL scroll when direction is RTL */
+        html[dir="rtl"] .marquee-content {
+            animation: scroll-rtl 40s linear infinite;
+        }
 
         /* SA Map Visual */
         .sa-map-container {
@@ -268,7 +276,7 @@
 <body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary transition-colors duration-300">
 <nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl shadow-sm dark:shadow-2xl shadow-black/10 dark:shadow-black/50 border-b border-outline-variant/10 transition-colors duration-300">
 <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-<a href="https://keepbox.com.sa" class="flex items-center gap-2">
+<a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
     <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8 transition-all">
     <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
 </a>
@@ -408,14 +416,6 @@
 <div>
 <h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight" data-i18n="trust_title">Trusted by 10,000+ users in the Gulf</h2>
 </div>
-<div class="flex space-x-2 rtl:space-x-reverse">
-<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-bright transition-colors rtl:rotate-180">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-bright transition-colors rtl:rotate-180">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
 </div>
 <div class="marquee-container">
     <div class="marquee-content rtl:flex-row-reverse">
@@ -427,7 +427,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold" data-i18n="rev_1_name">Ahmed Al-Qahtani</h4>
-                    <p class="text-xs text-on-surface-variant" data-i18n="rev_1_role">Creative Director, Dammam</p>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_1_role">Creative Director, NEOM</p>
                 </div>
             </div>
             <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_1_quote">"KeepBox transformed how I handle client briefings. I just send the voice note on WhatsApp."</p>
@@ -440,7 +440,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold" data-i18n="rev_2_name">Sarah Mansour</h4>
-                    <p class="text-xs text-on-surface-variant" data-i18n="rev_2_role">Legal Consultant, Dubai</p>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_2_role">Senior Consultant, STC</p>
                 </div>
             </div>
             <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_2_quote">"Security was my main concern. Knowing the encryption happens locally gives me peace of mind."</p>
@@ -453,7 +453,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold" data-i18n="rev_3_name">Khalid Ibrahim</h4>
-                    <p class="text-xs text-on-surface-variant" data-i18n="rev_3_role">Entrepreneur, Jeddah</p>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_3_role">Logistics Manager, Aramco</p>
                 </div>
             </div>
             <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_3_quote">"The frictionless upload via WhatsApp is a game-changer for my daily operations."</p>
@@ -466,7 +466,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold" data-i18n="rev_4_name">Laila Hassan</h4>
-                    <p class="text-xs text-on-surface-variant" data-i18n="rev_4_role">Marketing Lead, Dammam</p>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_4_role">Marketing Specialist, Dammam</p>
                 </div>
             </div>
             <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_4_quote">"Finally, a storage solution that feels as fast as messaging. No more complex apps."</p>
@@ -479,7 +479,72 @@
                 </div>
                 <div>
                     <h4 class="font-bold" data-i18n="rev_5_name">Omar Farooq</h4>
-                    <p class="text-xs text-on-surface-variant" data-i18n="rev_5_role">Startup Founder, NEOM</p>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_5_role">Tech Lead, NEOM</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_5_quote">"KeepBox is the missing piece for our mobile-first team. Efficient and local."</p>
+        </div>
+        <!-- Review 1 (Duplicate) -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Ahmed" src="https://i.pravatar.cc/150?u=ahmed"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_1_name">Ahmed Al-Qahtani</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_1_role">Creative Director, NEOM</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_1_quote">"KeepBox transformed how I handle client briefings. I just send the voice note on WhatsApp."</p>
+        </div>
+        <!-- Review 2 (Duplicate) -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Sarah" src="https://i.pravatar.cc/150?u=sarah"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_2_name">Sarah Mansour</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_2_role">Senior Consultant, STC</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_2_quote">"Security was my main concern. Knowing the encryption happens locally gives me peace of mind."</p>
+        </div>
+        <!-- Review 3 (Duplicate) -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Khalid" src="https://i.pravatar.cc/150?u=khalid"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_3_name">Khalid Ibrahim</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_3_role">Logistics Manager, Aramco</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_3_quote">"The frictionless upload via WhatsApp is a game-changer for my daily operations."</p>
+        </div>
+        <!-- Review 4 (Duplicate) -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Laila" src="https://i.pravatar.cc/150?u=laila"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_4_name">Laila Hassan</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_4_role">Marketing Specialist, Dammam</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_4_quote">"Finally, a storage solution that feels as fast as messaging. No more complex apps."</p>
+        </div>
+        <!-- Review 5 (Duplicate) -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Omar" src="https://i.pravatar.cc/150?u=omar"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_5_name">Omar Farooq</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_5_role">Tech Lead, NEOM</p>
                 </div>
             </div>
             <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_5_quote">"KeepBox is the missing piece for our mobile-first team. Efficient and local."</p>
@@ -660,15 +725,15 @@
 </main>
 <!-- Footer -->
 <footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
-<div class="flex flex-col md:flex-row justify-between items-center gap-8 px-8 py-12 max-w-7xl mx-auto rtl:flex-row-reverse">
-<div class="flex items-center gap-2">
-    <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8 transition-all">
-    <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
-</div>
-<div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
-    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
-    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
-    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="contact-us.html" data-i18n="footer_contact">Contact</a>
+<div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
+<a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
+    <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
+    <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+</a>
+<div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
+    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
 </div>
 </div>
 <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col md:flex-row justify-between items-center gap-4">

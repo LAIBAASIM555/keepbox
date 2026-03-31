@@ -157,12 +157,12 @@
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-error/30 transition-colors duration-300">
 <!-- Top Navigation -->
-<header class="fixed top-0 w-full z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl border-b border-outline-variant/10">
-<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-<a href="https://keepbox.com.sa/" class="flex items-center gap-2">
-    <img src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8">
-    <img src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
-</a>
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl border-b border-outline-variant/10 transition-colors duration-300">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="assets/keepbox-visual-logo.svg" alt="KeepBox" class="h-8">
+            <img src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+        </a>
 <div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight rtl:space-x-reverse">
 <a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#features" data-i18n="nav_features">Features</a>
 <a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#security" data-i18n="nav_security">Security</a>
@@ -180,7 +180,7 @@
 <a href="index.html#pricing" class="hidden md:block bg-primary text-on-primary font-headline font-bold px-6 py-2 rounded-full hover:bg-primary-container hover:scale-105 transition-all duration-300 active:scale-95 text-center" data-i18n="btn_get_started">Get Started</a>
 </div>
 </div>
-</header>
+</nav>
 <main class="min-h-screen flex flex-col items-center justify-center pt-20 pb-12 px-4 relative overflow-hidden">
 <!-- Background Atmospheric Element -->
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full error-glow pointer-events-none"></div>
@@ -213,11 +213,15 @@
 <span class="material-symbols-outlined text-error" data-icon="support_agent">support_agent</span>
 </div>
 </div>
-<!-- Transaction Details -->
-<div class="mb-10 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10 text-center hidden" id="transaction-details">
-    <div class="text-outline text-xs font-label uppercase tracking-wider mb-1" data-i18n="transaction_id">رقم العملية</div>
-    <div class="text-on-surface font-mono text-sm break-all" id="payment-id-display"></div>
+<!-- Transaction Details & Wait Suggestion -->
+<div class="space-y-4 mb-10">
+    <div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10 text-center hidden" id="transaction-details">
+        <div class="text-outline text-xs font-label uppercase tracking-wider mb-1" data-i18n="transaction_id">Transaction ID</div>
+        <div class="text-on-surface font-mono text-sm break-all" id="payment-id-display"></div>
+    </div>
+    <p class="text-xs font-bold text-on-surface-variant/60 italic" data-i18n="wait_msg">Please wait a moment before retrying</p>
 </div>
+
 
 <!-- CTA Actions -->
 <div class="flex flex-col sm:flex-row-reverse gap-4 justify-center">
@@ -232,18 +236,26 @@
 </div>
 </div>
 <!-- Security Badge -->
-<div class="mt-12 flex items-center gap-3 text-on-surface-variant/50 font-label text-sm">
-<span class="material-symbols-outlined text-base" data-icon="verified_user">verified_user</span>
-<span data-i18n="security_text">بياناتك محمية بتشفير 256-bit AES</span>
+<div class="mt-8 flex flex-col items-center gap-4">
+    <div class="flex items-center gap-3 text-on-surface-variant/60 font-label text-sm">
+        <span class="material-symbols-outlined text-base" data-icon="verified_user">verified_user</span>
+        <span data-i18n="security_text">Your data is securely protected with 256-bit AES encryption</span>
+    </div>
+    <div class="h-[1px] w-12 bg-outline-variant/20"></div>
+    <div class="text-xs font-bold tracking-widest uppercase opacity-40 flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">verified_user</span>
+        <span data-i18n="cta_trust">No signup required</span>
+    </div>
 </div>
+
 </main>
 <!-- Footer Segment -->
-<footer class="w-full border-t border-outline-variant/10 bg-[#0e0e0e] text-on-surface mt-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-8 py-12 max-w-7xl mx-auto rtl:flex-row-reverse">
-        <div class="flex items-center gap-2">
-            <img src="assets/keepbox-visual-logo.svg" alt="" class="h-8">
-            <img src="assets/keepbox-text-logo.svg" alt="" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
-        </div>
+<footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
+            <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
+                <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
+                <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+            </a>
         <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
             <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
             <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
@@ -263,58 +275,48 @@
 <script>
     const translations = {
         ar: {
-            head_title: "KeepBox - فشلت عملية الدفع",
-            title: "فشلت عملية الدفع",
-            subtitle: "لم نتمكن من إتمام عملية الدفع. يرجى المحاولة مرة أخرى.",
+            head_title: "KeepBox - لم يكتمل الدفع",
+            title: "لم نتمكن من إكمال عملية الدفع",
+            subtitle: "لم نتمكن من معالجة عملية الدفع. يرجى المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة.",
             transaction_id: "رقم العملية",
             error: "الخطأ",
-            guidance: "يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة. قد يكون هناك قيود على بطاقتك أو رصيد غير كافٍ.",
+            guidance: "قد يكون ذلك بسبب رصيد غير كافٍ، أو قيود البنك، أو مشكلة مؤقتة. يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع أخرى.",
             nav_features: "المميزات",
             nav_security: "الأمان",
             nav_pricing: "الأسعار",
             nav_faq: "الأسئلة الشائعة",
             nav_contact: "اتصل بنا",
             btn_get_started: "ابدأ الآن",
-            retry_btn: "إعادة المحاولة",
+            retry_btn: "🔁 حاول مرة أخرى",
             other_method_btn: "وسيلة دفع أخرى",
-            security_text: "بياناتك محمية بتشفير 256-bit AES",
+            security_text: "بياناتك محمية بشكل آمن بتشفير 256-bit AES",
             copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
-            legal_label: "القانونية",
-            privacy_policy: "سياسة الخصوصية",
-            terms_of_service: "شروط الخدمة",
-            security_label: "الأمان",
-            security_protocol: "بروتوكول الأمان",
-            system_status: "حالة النظام",
-            support_label: "الدعم",
             footer_contact: "اتصل بنا",
-            api_docs: "توثيق API"
+            wait_msg: "يرجى الانتظار للحظة قبل المحاولة مرة أخرى",
+            contact_support: "💬 تواصل مع الدعم",
+            cta_trust: "لا يلزم التسجيل"
         },
         en: {
-            head_title: "KeepBox - Payment Failed",
-            title: "Payment Failed",
-            subtitle: "We couldn't process your payment. Please try again.",
+            head_title: "KeepBox - Payment not completed",
+            title: "Payment could not be completed",
+            subtitle: "We couldn’t process your payment. Please try again or use a different payment method.",
             transaction_id: "Transaction ID",
             error: "Error",
-            guidance: "You can try again or use a different payment method. Your card may have restrictions or insufficient balance.",
+            guidance: "This may be due to insufficient balance, bank restrictions, or a temporary issue. You can try again or use another payment method.",
             nav_features: "Features",
             nav_security: "Security",
             nav_pricing: "Pricing",
             nav_faq: "FAQ",
             nav_contact: "Contact Us",
             btn_get_started: "Get Started",
-            retry_btn: "Retry Payment",
+            retry_btn: "🔁 Try Again",
             other_method_btn: "Other Payment Method",
-            security_text: "Your data is protected by 256-bit AES encryption",
+            security_text: "Your data is securely protected with 256-bit AES encryption",
             copyright: "© 2026 KeepBox. All rights reserved.",
-            legal_label: "Legal",
-            privacy_policy: "Privacy Policy",
-            terms_of_service: "Terms of Service",
-            security_label: "Security",
-            security_protocol: "Security Protocol",
-            system_status: "System Status",
-            support_label: "Support",
             footer_contact: "Contact",
-            api_docs: "API Documentation"
+            wait_msg: "Please wait a moment before retrying",
+            contact_support: "💬 Contact Support",
+            cta_trust: "No signup required"
         }
     };
 
