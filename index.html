@@ -725,24 +725,25 @@
 </main>
 <!-- Footer -->
 <footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
-<div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
-<a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
-    <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
-    <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
-</a>
-<div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
-    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
-    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
-    <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-['Inter'] text-sm text-neutral-500" data-i18n="footer_copy">© 2026 KeepBox. All rights reserved.</p>
-<div class="flex items-center space-x-6 rtl:space-x-reverse">
-<a class="text-neutral-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
-<a class="text-neutral-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">terminal</span></a>
-</div>
-</div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial transition-all duration-500">
+        <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-all duration-300 transform hover:scale-105">
+            <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto">
+            <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
+        </a>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="index.html" data-i18n="footer_home">Home</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-600 font-medium">
+        <p data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
+        <div class="flex items-center gap-2 opacity-60">
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            <span data-i18n="footer_tagline">Verified High-Speed Cloud Storage</span>
+        </div>
+    </div>
 </footer>
 
 <script>
@@ -825,7 +826,10 @@
             footer_res: "Resources",
             footer_api: "API Documentation",
             footer_status: "System Status",
+            footer_home: "Home",
+            footer_tagline: "Verified High-Speed Cloud Storage",
             footer_copy: "© 2026 KeepBox. All rights reserved.",
+            copyright: "© 2026 KeepBox. All rights reserved.",
             faq_title: "Frequently Asked Questions",
             faq_q1: "Do I need to install an app?",
             faq_a1: "No! KeepBox works entirely within WhatsApp. You just chat with our number like you would with a friend.",
@@ -914,7 +918,10 @@
             footer_res: "الموارد",
             footer_api: "وثائق API",
             footer_status: "حالة النظام",
+            footer_home: "الرئيسية",
+            footer_tagline: "تخزين سحابي عالي السرعة وموثوق",
             footer_copy: "© 2026 KeepBox. جميع الحقوق محفوظة.",
+            copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
             faq_title: "الأسئلة الشائعة",
             faq_q1: "هل أحتاج إلى تثبيت تطبيق؟",
             faq_a1: "لا! KeepBox يعمل بالكامل داخل تطبيق واتساب. يمكنك الدردشة مع رقمنا تماماً كما تفعل مع أي صديق.",

@@ -196,15 +196,18 @@
     </div>
 
     <!-- Header Section -->
-    <div class="space-y-3 mb-8">
+    <div class="space-y-4 mb-8">
         <h1 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tight leading-tight" data-i18n="title">Payment could not be completed</h1>
-        <p class="text-on-surface-variant text-base md:text-lg font-medium leading-relaxed" data-i18n="subtitle">We couldn’t process your payment. Please try again or use a different payment method.</p>
+        <div class="space-y-2">
+            <p class="text-on-surface-variant text-base md:text-lg font-bold" data-i18n="subtitle_1">We couldn’t process your payment.</p>
+            <p class="text-on-surface-variant/70 text-sm md:text-base font-medium leading-relaxed" data-i18n="subtitle_2">Tap “Try Again” to open WhatsApp and continue your payment using the link we shared with you.</p>
+        </div>
     </div>
 
     <!-- Redesigned Minimal Error Note -->
-    <div class="bg-error/5 border border-error/10 p-4 rounded-2xl mb-8 flex items-start gap-3 text-left rtl:text-right transition-all">
-        <span class="material-symbols-outlined text-error text-xl shrink-0">warning</span>
-        <p class="text-on-surface text-sm leading-snug opacity-90 font-medium" data-i18n="guidance">This may be due to insufficient balance, bank restrictions, or a temporary issue. You can try again or use another payment method.</p>
+    <div class="bg-error/[0.03] border border-error/[0.08] p-4 rounded-2xl mb-10 flex items-start gap-3 text-left rtl:text-right transition-all">
+        <span class="material-symbols-outlined text-error text-xl shrink-0 opacity-70">warning</span>
+        <p class="text-on-surface/80 text-sm leading-snug font-medium" data-i18n="guidance">This may be due to insufficient balance, bank restrictions, or a temporary issue. You can try again or use another payment method.</p>
     </div>
 
     <!-- Transaction ID (Hidden by default) -->
@@ -214,38 +217,41 @@
     </div>
 
     <!-- Compact CTA Buttons -->
-    <div class="flex flex-col sm:flex-row-reverse gap-3">
+    <div class="flex flex-col sm:flex-row-reverse gap-4">
         <a href="https://wa.me/966559962280" class="flex-1 bg-error hover:bg-error-dim text-white font-headline font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-error/20 flex items-center justify-center gap-2 group">
             <span data-i18n="retry_btn">Try Again</span>
             <span class="material-symbols-outlined group-hover:rotate-180 transition-transform text-lg">refresh</span>
         </a>
-        <a href="mailto:support@keepbox.com.sa" class="flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface font-headline font-bold py-3.5 px-6 rounded-xl border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2">
-            <span class="material-symbols-outlined text-lg">mail</span>
-            <span data-i18n="contact_support">Contact Support</span>
+        <a href="https://wa.me/966559962280" class="flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface font-headline font-bold py-3.5 px-6 rounded-xl border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-lg">chat</span>
+            <span data-i18n="contact_on_whatsapp">Contact on WhatsApp</span>
         </a>
     </div>
 
-    <p class="mt-6 text-xs font-bold text-on-surface-variant/40 italic" data-i18n="wait_msg">Please wait a moment before retrying</p>
+    <p class="mt-8 text-[10px] font-bold text-on-surface-variant/30 uppercase tracking-widest italic" data-i18n="wait_msg">Please wait a moment before retrying</p>
 </div>
 </main>
 <!-- Footer Segment -->
 
-<!-- Footer Segment -->
-<footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
-        <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
-            <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
-            <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+<!-- Footer Segment --><footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial transition-all duration-500">
+        <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-all duration-300 transform hover:scale-105">
+            <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto">
+            <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
         </a>
         <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="index.html" data-i18n="footer_home">Home</a>
             <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
             <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
             <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center text-xs text-neutral-600">
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-600 font-medium">
         <p data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
-        <p class="hidden sm:block opacity-60">Verified High-Speed Cloud Storage</p>
+        <div class="flex items-center gap-2 opacity-60">
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            <span data-i18n="footer_tagline">Verified High-Speed Cloud Storage</span>
+        </div>
     </div>
 </footer>
 <!-- Imagery/Texture -->
@@ -259,7 +265,8 @@
         ar: {
             head_title: "KeepBox - لم يكتمل الدفع",
             title: "لم نتمكن من إكمال عملية الدفع",
-            subtitle: "لم نتمكن من معالجة عملية الدفع. يرجى المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة.",
+            subtitle_1: "لم نتمكن من معالجة عملية الدفع الخاصة بك.",
+            subtitle_2: "اضغط على \"حاول مرة أخرى\" لفتح واتساب ومتابعة عملية الدفع باستخدام الرابط الذي شاركناه معك.",
             transaction_id: "رقم العملية",
             error: "الخطأ",
             guidance: "قد يكون ذلك بسبب رصيد غير كافٍ، أو قيود البنك، أو مشكلة مؤقتة. يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع أخرى.",
@@ -275,13 +282,16 @@
             copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
             footer_contact: "اتصل بنا",
             wait_msg: "يرجى الانتظار للحظة قبل المحاولة مرة أخرى",
-            contact_support: "تواصل مع الدعم",
+            contact_on_whatsapp: "تواصل عبر واتساب",
+            footer_home: "الرئيسية",
+            footer_tagline: "تخزين سحابي عالي السرعة وموثوق",
             cta_trust: "لا يلزم التسجيل"
         },
         en: {
             head_title: "KeepBox - Payment not completed",
             title: "Payment could not be completed",
-            subtitle: "We couldn’t process your payment. Please try again or use a different payment method.",
+            subtitle_1: "We couldn’t process your payment.",
+            subtitle_2: "Tap “Try Again” to open WhatsApp and continue your payment using the link we shared with you.",
             transaction_id: "Transaction ID",
             error: "Error",
             guidance: "This may be due to insufficient balance, bank restrictions, or a temporary issue. You can try again or use another payment method.",
@@ -297,7 +307,9 @@
             copyright: "© 2026 KeepBox. All rights reserved.",
             footer_contact: "Contact",
             wait_msg: "Please wait a moment before retrying",
-            contact_support: "Contact Support",
+            contact_on_whatsapp: "Contact on WhatsApp",
+            footer_home: "Home",
+            footer_tagline: "Verified High-Speed Cloud Storage",
             cta_trust: "No signup required"
         }
     };

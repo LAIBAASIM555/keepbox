@@ -251,26 +251,26 @@
 </div>
 </div>
 </main>
-
-
-</div>
-</main>
 <!-- Footer Component -->
-    <footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
-            <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
-                <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
-                <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
-            </a>
-        <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="contact-us.html" data-i18n="footer_contact">Contact</a>
+<footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial transition-all duration-500">
+        <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-all duration-300 transform hover:scale-105">
+            <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto">
+            <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
+        </a>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="index.html" data-i18n="footer_home">Home</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+            <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center text-xs text-neutral-600">
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-600 font-medium">
         <p data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
-        <p class="hidden sm:block opacity-60">Verified High-Speed Connection</p>
+        <div class="flex items-center gap-2 opacity-60">
+            <span class="material-symbols-outlined text-sm">verified_user</span>
+            <span data-i18n="footer_tagline">Verified High-Speed Cloud Storage</span>
+        </div>
     </div>
 </footer>
 <script>
@@ -291,6 +291,8 @@
             account_status: "الحالة",
             active_now: "نشط",
             next_step: "أرسل ملفك الأول عبر واتساب للبدء",
+            footer_home: "الرئيسية",
+            footer_tagline: "تخزين سحابي عالي السرعة وموثوق",
             copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
             footer_contact: "اتصل بنا"
         },
@@ -305,12 +307,15 @@
             nav_faq: "FAQ",
             nav_contact: "Contact Us",
             btn_get_started: "Get Started",
-            manage_account: "Manage Account",
-            footer_desc: "Security and Privacy - We protect your data using advanced encryption.",
+            secure_connection: "Your connection is secured with 256-bit encryption",
+            subscription_type: "Plan",
+            premium_plan: "Premium",
+            account_status: "Status",
+            active_now: "Active",
+            next_step: "Send your first file on WhatsApp to get started",
+            footer_home: "Home",
+            footer_tagline: "Verified High-Speed Cloud Storage",
             copyright: "© 2026 KeepBox. All rights reserved.",
-            support_label: "Support",
-            privacy_policy: "Privacy Policy",
-            security_protocol: "Security Protocol",
             terms_of_service: "Terms of Service",
             system_label: "System",
             footer_contact: "Contact",

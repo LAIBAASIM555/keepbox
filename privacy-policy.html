@@ -132,10 +132,10 @@
 
     <!-- Simplified Footer -->
     <footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial">
-            <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-opacity">
-                <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
-                <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 px-8 py-16 max-w-7xl mx-auto rtl:flex-row-reverse text-center md:text-initial transition-all duration-500">
+            <a href="index.html" class="flex items-center gap-3 shrink-0 hover:opacity-80 transition-all duration-300 transform hover:scale-105">
+                <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto">
+                <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
             </a>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-10 text-xs font-bold uppercase tracking-[0.2em] rtl:flex-row-reverse">
                 <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="index.html" data-i18n="footer_home">Home</a>
@@ -144,16 +144,20 @@
                 <a class="text-neutral-500 hover:text-primary transition-all duration-300 hover:translate-y-[-2px]" href="contact-us.html" data-i18n="footer_contact">Contact</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center text-xs text-neutral-600">
-            <p data-i18n="footer_copy">© 2026 KeepBox. All rights reserved.</p>
+        <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-600 font-medium">
+            <p data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
+            <div class="flex items-center gap-2 opacity-60">
+                <span class="material-symbols-outlined text-sm">verified_user</span>
+                <span data-i18n="footer_tagline">Verified High-Speed Cloud Storage</span>
+            </div>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
-                head_title: "KeepBox | Privacy Policy",
-                title: "Keepbox Privacy Policy",
+                head_title: "KeepBox - Privacy Policy",
+                title: "Privacy Policy",
                 effective_date: "Effective Date: 10-01-2026",
                 intro: "This Privacy Policy explains how Keepbox collects and processes personal data when you use our Service through WhatsApp or through our website, and how you can exercise your rights under the Saudi Personal Data Protection Law and its implementing regulations (“PDPL”).",
                 s1_t: "1) Scope",
@@ -178,7 +182,9 @@
                 footer_priv: "Privacy Policy",
                 footer_terms: "Terms of Service",
                 footer_contact: "Contact",
-                footer_copy: "© 2026 KeepBox. All rights reserved."
+                footer_home: "Home",
+                footer_tagline: "Verified High-Speed Cloud Storage",
+                copyright: "© 2026 KeepBox. All rights reserved."
             },
             ar: {
                 head_title: "KeepBox | سياسة الخصوصية",
