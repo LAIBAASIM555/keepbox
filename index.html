@@ -611,22 +611,34 @@
     </div>
 </section>
 <!-- CTA Section -->
-<section class="py-24 bg-primary flex flex-col items-center justify-center text-on-primary text-center px-6 reveal">
-    <div class="max-w-4xl mx-auto space-y-8">
-        <h2 class="font-headline font-extrabold text-4xl md:text-6xl tracking-tight" data-i18n="cta_title">Start saving in seconds</h2>
-        <div class="grid md:grid-cols-2 gap-12 items-center bg-white/10 p-8 rounded-3xl backdrop-blur-lg border border-white/20">
-                <div class="w-64 h-64 bg-white p-6 rounded-[2rem] mx-auto flex items-center justify-center shadow-[0_20px_50px_rgba(37,211,102,0.2)] group-hover:scale-105 transition-transform duration-500">
-                    <img src="assets/qr.jpeg" class="w-full h-full object-contain rounded-2xl" alt="Scan to Start Saving">
+<section class="py-24 bg-gradient-to-br from-primary via-[#1da851] to-primary text-on-primary text-center px-6 relative overflow-hidden reveal">
+    <!-- Subtle Background Pattern -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto space-y-12 relative z-10">
+        <h2 class="font-headline font-extrabold text-4xl md:text-6xl tracking-tight" data-i18n="cta_title">Start saving your files in seconds</h2>
+        
+        <div class="flex flex-col items-center space-y-8">
+            <!-- QR Container -->
+            <div class="w-56 h-56 bg-white p-5 rounded-[2.5rem] shadow-[0_25px_60px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-500">
+                <img src="assets/qr.jpeg" class="w-full h-full object-contain rounded-3xl" alt="Scan to Start Saving">
+            </div>
+            
+            <div class="space-y-2">
+                <p class="text-xl font-bold tracking-tight" data-i18n="cta_scan">Scan the QR code to start instantly</p>
+                <div class="flex items-center justify-center space-x-4 rtl:space-x-reverse opacity-60">
+                    <div class="h-[1px] w-12 bg-white"></div>
+                    <p class="text-sm uppercase tracking-widest font-bold" data-i18n="cta_click">Or open WhatsApp directly</p>
+                    <div class="h-[1px] w-12 bg-white"></div>
                 </div>
-                <p class="text-lg font-bold" data-i18n="cta_scan">Scan with your phone camera</p>
             </div>
-            <div class="space-y-6">
-                <p class="text-lg opacity-80" data-i18n="cta_click">Or click the button below to open the chat directly in WhatsApp on your phone or desktop.</p>
-                <a href="https://wa.me/966559962280" class="inline-flex items-center justify-center space-x-3 rtl:space-x-reverse bg-white text-primary px-6 py-4 rounded-xl font-headline font-bold text-lg hover:shadow-2xl transition-all hover:scale-105 active:scale-95 text-center">
-                    <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-6 h-6 flex-shrink-0" alt="">
-                    <span data-i18n="cta_btn">Chat on WhatsApp +966 55 996 2280</span>
-                </a>
-            </div>
+
+            <a href="https://wa.me/966559962280" class="group flex items-center justify-center space-x-4 rtl:space-x-reverse bg-white text-primary px-10 py-5 rounded-2xl font-headline font-extrabold text-xl shadow-xl hover:shadow-[0_20px_40px_rgba(255,255,255,0.3)] transition-all hover:translate-y-[-4px] active:scale-95">
+                <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-7 h-7 transition-transform group-hover:rotate-12" alt="">
+                <span data-i18n="cta_btn">Chat on WhatsApp +966 55 996 2280</span>
+            </a>
         </div>
     </div>
 </section>
@@ -719,8 +731,8 @@
             price_pro_feat_4: "No File Size Limit",
             btn_upgrade_now: "Upgrade Now",
             cta_title: "Start saving your files in seconds",
-            cta_scan: "Scan with your phone to get started",
-            cta_click: "Or open WhatsApp directly on your phone or desktop and start saving instantly.",
+            cta_scan: "Scan the QR code to start instantly",
+            cta_click: "Or open WhatsApp directly",
             cta_btn: "Chat on WhatsApp +966 55 996 2280",
             footer_desc: "The world's most frictionless cloud storage integration, designed for the future of mobile-first users.",
             footer_product: "Product",
@@ -807,8 +819,8 @@
             price_pro_feat_4: "بدون حد لحجم الملف",
             btn_upgrade_now: "ترقية الآن",
             cta_title: "ابدأ حفظ ملفاتك خلال ثوانٍ",
-            cta_scan: "امسح الرمز بالكاميرا للبدء",
-            cta_click: "أو افتح واتساب مباشرة على هاتفك أو جهاز الكمبيوتر وابدأ الحفظ فورًا",
+            cta_scan: "امسح الرمز للبدء فورًا",
+            cta_click: "أو افتح واتساب مباشرة",
             cta_btn: "تواصل عبر واتساب +966 55 996 2280",
             footer_desc: "أكثر أنظمة التخزين السحابية سلاسة في العالم، مصممة لمستقبل المستخدمين المعتمدين على الهاتف المحمول.",
             footer_product: "المنتج",
