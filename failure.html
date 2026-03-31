@@ -181,60 +181,53 @@
 </div>
 </div>
 </nav>
-<main class="min-h-screen flex flex-col items-center justify-center pt-20 pb-12 px-4 relative overflow-hidden">
+<main class="min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-4 relative overflow-hidden">
 <!-- Background Atmospheric Element -->
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full error-glow pointer-events-none"></div>
-<!-- Main Content Card -->
-<div class="max-w-xl w-full glass-panel rounded-3xl p-8 md:p-12 text-center relative z-10 shadow-2xl translate-y-0 transition-transform hover:translate-y-[-8px] duration-500">
-<!-- Error Visual Icon -->
-<div class="mb-8 relative inline-block">
-<div class="w-24 h-24 bg-error/10 rounded-full flex items-center justify-center mx-auto ring-1 ring-error/20">
-<span class="material-symbols-outlined text-6xl text-error" data-icon="error_outline">error_outline</span>
-</div>
-<!-- Pulsing ring effect -->
-<div class="absolute inset-0 rounded-full animate-ping bg-error/5 scale-125 opacity-20"></div>
-</div>
-<!-- Header Section -->
-<h1 class="font-headline text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight" data-i18n="title">
-    فشلت عملية الدفع
-</h1>
-<p class="text-on-surface-variant text-lg md:text-xl font-medium mb-10 leading-relaxed" data-i18n="subtitle">
-    لم نتمكن من إتمام عملية الدفع. يرجى المحاولة مرة أخرى.
-</p>
 
-<!-- Assistant Guidance (WhatsApp style bubble) -->
-<div class="bg-surface-container-highest p-5 rounded-[0_24px_24px_24px] mb-10 rtl:text-right ltr:text-left rtl:border-r-4 ltr:border-l-4 border-error/50 relative overflow-hidden transition-all duration-300" id="guidance-box">
-<div class="flex items-start gap-4">
-<div class="flex-1">
-<p class="text-on-surface text-sm leading-relaxed" data-i18n="guidance">
-    يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة. قد يكون هناك قيود على بطاقتك أو رصيد غير كافٍ.
-</p>
-</div>
-<span class="material-symbols-outlined text-error" data-icon="support_agent">support_agent</span>
-</div>
-</div>
-<!-- Transaction Details & Wait Suggestion -->
-<div class="space-y-4 mb-10">
-    <div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10 text-center hidden" id="transaction-details">
-        <div class="text-outline text-xs font-label uppercase tracking-wider mb-1" data-i18n="transaction_id">Transaction ID</div>
-        <div class="text-on-surface font-mono text-sm break-all" id="payment-id-display"></div>
+<!-- Compact Content Card -->
+<div class="max-w-lg w-full glass-panel rounded-3xl p-8 md:p-10 text-center relative z-10 shadow-2xl transition-all duration-500">
+    <!-- Error Visual Icon -->
+    <div class="mb-6 relative inline-block">
+        <div class="w-20 h-20 bg-error/10 rounded-full flex items-center justify-center mx-auto ring-1 ring-error/20">
+            <span class="material-symbols-outlined text-5xl text-error">error_outline</span>
+        </div>
+        <div class="absolute inset-0 rounded-full animate-ping bg-error/5 scale-125 opacity-20"></div>
     </div>
-    <p class="text-xs font-bold text-on-surface-variant/60 italic" data-i18n="wait_msg">Please wait a moment before retrying</p>
-</div>
 
+    <!-- Header Section -->
+    <div class="space-y-3 mb-8">
+        <h1 class="font-headline text-3xl md:text-4xl font-extrabold tracking-tight leading-tight" data-i18n="title">Payment could not be completed</h1>
+        <p class="text-on-surface-variant text-base md:text-lg font-medium leading-relaxed" data-i18n="subtitle">We couldn’t process your payment. Please try again or use a different payment method.</p>
+    </div>
 
-<!-- CTA Actions -->
-<div class="flex flex-col sm:flex-row-reverse gap-4 justify-center">
-    <button onclick="handleRetry()" class="flex-1 bg-error hover:bg-error-dim text-white font-headline font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg shadow-error/20 flex items-center justify-center gap-2 group">
-        <span data-i18n="retry_btn">إعادة المحاولة</span>
-        <span class="material-symbols-outlined group-hover:rotate-180 transition-transform" data-icon="refresh">refresh</span>
-    </button>
-    <a id="whatsapp-support-btn" href="https://wa.me/966559962280" class="flex-1 bg-surface-container-high hover:bg-surface-variant text-[#25D366] font-headline font-bold py-4 px-8 rounded-full border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2">
-        <img src="assets/whatsapp-icon.svg" class="w-5 h-5" alt="">
-        <span data-i18n="contact_support">اتصل بالدعم</span>
-    </a>
+    <!-- Redesigned Minimal Error Note -->
+    <div class="bg-error/5 border border-error/10 p-4 rounded-2xl mb-8 flex items-start gap-3 text-left rtl:text-right transition-all">
+        <span class="material-symbols-outlined text-error text-xl shrink-0">warning</span>
+        <p class="text-on-surface text-sm leading-snug opacity-90 font-medium" data-i18n="guidance">This may be due to insufficient balance, bank restrictions, or a temporary issue. You can try again or use another payment method.</p>
+    </div>
+
+    <!-- Transaction ID (Hidden by default) -->
+    <div class="mb-8 p-3 bg-surface-container-low rounded-xl border border-outline-variant/10 text-center hidden" id="transaction-details">
+        <div class="text-outline text-[10px] font-bold uppercase tracking-widest mb-1" data-i18n="transaction_id">Transaction ID</div>
+        <div class="text-on-surface font-mono text-xs break-all" id="payment-id-display"></div>
+    </div>
+
+    <!-- Compact CTA Buttons -->
+    <div class="flex flex-col sm:flex-row-reverse gap-3">
+        <button onclick="handleRetry()" class="flex-1 bg-error hover:bg-error-dim text-white font-headline font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-error/20 flex items-center justify-center gap-2 group">
+            <span data-i18n="retry_btn">Try Again</span>
+            <span class="material-symbols-outlined group-hover:rotate-180 transition-transform text-lg">refresh</span>
+        </button>
+        <a id="whatsapp-support-btn" href="https://wa.me/966559962280" class="flex-1 bg-surface-container-high hover:bg-surface-variant text-on-surface font-headline font-bold py-3.5 px-6 rounded-xl border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-lg">chat</span>
+            <span data-i18n="contact_support">Contact Support</span>
+        </a>
+    </div>
+
+    <p class="mt-6 text-xs font-bold text-on-surface-variant/40 italic" data-i18n="wait_msg">Please wait a moment before retrying</p>
 </div>
-</div>
+</main>
 <!-- Security Badge -->
 <div class="mt-8 flex flex-col items-center gap-4">
     <div class="flex items-center gap-3 text-on-surface-variant/60 font-label text-sm">
@@ -256,14 +249,9 @@
                 <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-10 w-auto transition-all">
                 <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-7 w-auto dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
             </a>
-        <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
-            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/contact-us.html" data-i18n="footer_contact">Contact</a>
-        </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center">
-        <p class="text-sm text-neutral-500" data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center text-xs text-neutral-600">
+        <p data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
+        <p class="hidden sm:block opacity-60">Professional WhatsApp Cloud Storage</p>
     </div>
 </footer>
 <!-- Imagery/Texture -->
@@ -287,13 +275,13 @@
             nav_faq: "الأسئلة الشائعة",
             nav_contact: "اتصل بنا",
             btn_get_started: "ابدأ الآن",
-            retry_btn: "🔁 حاول مرة أخرى",
+            retry_btn: "حاول مرة أخرى",
             other_method_btn: "وسيلة دفع أخرى",
             security_text: "بياناتك محمية بشكل آمن بتشفير 256-bit AES",
             copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
             footer_contact: "اتصل بنا",
             wait_msg: "يرجى الانتظار للحظة قبل المحاولة مرة أخرى",
-            contact_support: "💬 تواصل مع الدعم",
+            contact_support: "تواصل مع الدعم",
             cta_trust: "لا يلزم التسجيل"
         },
         en: {
@@ -309,13 +297,13 @@
             nav_faq: "FAQ",
             nav_contact: "Contact Us",
             btn_get_started: "Get Started",
-            retry_btn: "🔁 Try Again",
+            retry_btn: "Try Again",
             other_method_btn: "Other Payment Method",
             security_text: "Your data is securely protected with 256-bit AES encryption",
             copyright: "© 2026 KeepBox. All rights reserved.",
             footer_contact: "Contact",
             wait_msg: "Please wait a moment before retrying",
-            contact_support: "💬 Contact Support",
+            contact_support: "Contact Support",
             cta_trust: "No signup required"
         }
     };
@@ -334,16 +322,6 @@
             }
         });
 
-        // Update guidance box border direction
-        const box = document.getElementById('guidance-box');
-        if (currentLang === 'ar') {
-            box.classList.remove('rounded-[24px_0_24px_24px]');
-            box.classList.add('rounded-[0_24px_24px_24px]');
-        } else {
-            box.classList.remove('rounded-[0_24px_24px_24px]');
-            box.classList.add('rounded-[24px_0_24px_24px]');
-        }
-        
         localStorage.setItem('keepbox_lang', currentLang);
     }
 
