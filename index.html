@@ -301,16 +301,19 @@
 <span class="text-xs font-bold tracking-widest uppercase text-on-surface-variant" data-i18n="hero_live">Live in the Kingdom</span>
 </div>
                                                 <h1 class="font-headline font-extrabold text-5xl md:text-7xl leading-tight tracking-tighter" data-i18n="hero_title">
-                        Save, send, and manage your files in seconds — <span class="text-primary">via WhatsApp</span>.
+                        Save and manage your files instantly — <span class="text-primary">on WhatsApp</span>.
                 </h1>
                 <p class="text-xl text-on-surface-variant md:text-2xl leading-relaxed opacity-80" data-i18n="hero_subtitle">No apps. No signups. Just send your files on WhatsApp and we store them securely with military-grade encryption.</p>
-                                <div class="flex flex-col sm:flex-row gap-4 pt-4 rtl:flex-row-reverse sm:rtl:justify-end">
-                <a href="https://wa.me/966559962280" class="flex items-center justify-center space-x-3 rtl:space-x-reverse bg-primary text-on-primary px-8 py-4 rounded-2xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 hover:translate-y-[-2px] transition-all active:scale-95">
-                <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-6 h-6 brightness-0 invert" alt="WhatsApp">
-                <span data-i18n="hero_btn_save">Save via WhatsApp</span>
-                </a>
-
-</div>
+                <div class="flex flex-col items-center sm:items-start gap-3 pt-4">
+                    <a href="https://wa.me/966559962280" class="group flex items-center justify-center space-x-3 rtl:space-x-reverse bg-primary text-on-primary px-10 py-5 rounded-2xl font-headline font-extrabold text-xl hover:shadow-2xl hover:shadow-primary/30 hover:translate-y-[-4px] transition-all active:scale-95">
+                        <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-7 h-7 brightness-0 invert group-hover:rotate-12 transition-transform" alt="WhatsApp">
+                        <span data-i18n="hero_btn_save">Start on WhatsApp</span>
+                    </a>
+                    <p class="text-xs font-bold tracking-widest uppercase text-on-surface-variant opacity-60 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">verified_user</span>
+                        <span data-i18n="cta_trust">No signup required</span>
+                    </p>
+                </div>
 </div>
 <div class="relative flex justify-center">
     <div class="relative group animate-float">
@@ -357,7 +360,7 @@
 </div>
 </section>
 <!-- Privacy & Local Hosting Section -->
-<section id="security" class="py-24 relative overflow-hidden reveal">
+<section id="security" class="py-32 relative overflow-hidden bg-gradient-to-b from-surface-container-low to-background reveal">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 <div class="relative order-2 md:order-1 flex justify-center items-center py-12">
     <div class="relative group">
@@ -487,7 +490,7 @@
 </section>
 <!-- Pricing Section -->
 <!-- Pricing Section -->
-<section id="pricing" class="py-24 bg-background">
+<section id="pricing" class="py-32 bg-gradient-to-b from-surface-container-low to-background">
 <div class="max-w-7xl mx-auto px-6">
 <div class="text-center mb-16">
 <h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight mb-4" data-i18n="price_title">Simple Pricing</h2>
@@ -517,7 +520,10 @@
 <span data-i18n="price_starter_feat_3">Basic Support</span>
 </li>
 </ul>
-<button class="w-full py-4 rounded-2xl bg-surface-container-highest text-on-surface font-headline font-bold hover:bg-surface-bright transition-all active:scale-95" data-i18n="btn_start_free">Start Free</button>
+<div class="flex flex-col items-center gap-3 mt-auto">
+    <button class="w-full py-4 rounded-2xl bg-surface-container-highest text-on-surface font-headline font-bold hover:bg-surface-bright transition-all active:scale-95" data-i18n="btn_start_free">Start on WhatsApp</button>
+    <p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant opacity-40">No signup required</p>
+</div>
 </div>
 <!-- Pro Plan -->
 <div class="bg-primary/5 p-10 rounded-[2.5rem] border-2 border-primary flex flex-col relative shadow-2xl shadow-primary/10">
@@ -547,7 +553,10 @@
 <span data-i18n="price_pro_feat_4">No File Size Limit</span>
 </li>
 </ul>
-<button class="w-full py-4 rounded-2xl bg-primary text-on-primary font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all active:scale-95" data-i18n="btn_upgrade_now">Upgrade Now</button>
+<div class="flex flex-col items-center gap-3 mt-auto">
+    <button class="w-full py-4 rounded-2xl bg-primary text-on-primary font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all active:scale-95" data-i18n="btn_upgrade_now">Start on WhatsApp</button>
+    <p class="text-[10px] font-bold tracking-widest uppercase text-on-primary opacity-60">No signup required</p>
+</div>
 </div>
 </div>
 </div>
@@ -611,7 +620,7 @@
     </div>
 </section>
 <!-- CTA Section -->
-<section class="py-24 bg-gradient-to-br from-primary via-[#1da851] to-primary text-on-primary text-center px-6 relative overflow-hidden reveal">
+<section class="py-32 bg-gradient-to-br from-primary via-[#1da851] to-primary text-on-primary text-center px-6 relative overflow-hidden reveal">
     <!-- Subtle Background Pattern -->
     <div class="absolute inset-0 opacity-10 pointer-events-none">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
@@ -620,13 +629,13 @@
     <div class="max-w-4xl mx-auto space-y-12 relative z-10">
         <h2 class="font-headline font-extrabold text-4xl md:text-6xl tracking-tight" data-i18n="cta_title">Start saving your files in seconds</h2>
         
-        <div class="flex flex-col items-center space-y-8">
+        <div class="flex flex-col items-center space-y-10">
             <!-- QR Container -->
             <div class="w-56 h-56 bg-white p-5 rounded-[2.5rem] shadow-[0_25px_60px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-500">
                 <img src="assets/qr.jpeg" class="w-full h-full object-contain rounded-3xl" alt="Scan to Start Saving">
             </div>
             
-            <div class="space-y-2">
+            <div class="space-y-4">
                 <p class="text-xl font-bold tracking-tight" data-i18n="cta_scan">Scan the QR code to start instantly</p>
                 <div class="flex items-center justify-center space-x-4 rtl:space-x-reverse opacity-60">
                     <div class="h-[1px] w-12 bg-white"></div>
@@ -635,10 +644,16 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/966559962280" class="group flex items-center justify-center space-x-4 rtl:space-x-reverse bg-white text-primary px-10 py-5 rounded-2xl font-headline font-extrabold text-xl shadow-xl hover:shadow-[0_20px_40px_rgba(255,255,255,0.3)] transition-all hover:translate-y-[-4px] active:scale-95">
-                <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-7 h-7 transition-transform group-hover:rotate-12" alt="">
-                <span data-i18n="cta_btn">Chat on WhatsApp +966 55 996 2280</span>
-            </a>
+            <div class="flex flex-col items-center gap-4">
+                <a href="https://wa.me/966559962280" class="group flex items-center justify-center space-x-4 rtl:space-x-reverse bg-white text-primary px-12 py-5 rounded-2xl font-headline font-extrabold text-xl shadow-xl hover:shadow-[0_20px_40px_rgba(255,255,255,0.3)] transition-all hover:translate-y-[-4px] active:scale-95">
+                    <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-7 h-7 transition-transform group-hover:rotate-12" alt="">
+                    <span data-i18n="cta_btn">Start on WhatsApp</span>
+                </a>
+                <p class="text-xs font-bold tracking-widest uppercase opacity-70 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">verified_user</span>
+                    <span data-i18n="cta_trust">No signup required</span>
+                </p>
+            </div>
         </div>
     </div>
 </section>
@@ -676,9 +691,10 @@
             nav_contact: "Contact Us",
             btn_get_started: "Get Started",
             hero_live: "🇸🇦 Hosted in Saudi Arabia",
-            hero_title: "Save, send, and manage your files in seconds — <span class=\"text-primary\">via WhatsApp</span>.",
+            hero_title: "Save and manage your files instantly — <span class=\"text-primary\">on WhatsApp</span>.",
+            hero_btn_save: "Start on WhatsApp",
+            cta_trust: "No signup required",
             hero_subtitle: "No apps. No signups. Just send your files on WhatsApp and we store them securely with military-grade encryption.",
-            hero_btn_save: "Start Saving on WhatsApp",
             chat_status: "Online | Cloud Encrypted",
             chat_msg_1: "Send me the PDF from today's meeting.",
             chat_bot_name: "KeepBox Bot",
@@ -700,19 +716,19 @@
             priv_num_2_sub: "Compliant",
             trust_title: "Trusted by Saudi professionals",
             rev_1_name: "Ahmad Al-Qahtani",
-            rev_1_role: "Creative Director, Dammam",
+            rev_1_role: "Creative Director, NEOM",
             rev_1_quote: '"KeepBox transformed how I handle client briefings. I just send the voice note on WhatsApp."',
             rev_2_name: "Sarah Mansour",
-            rev_2_role: "Legal Consultant, Dubai",
+            rev_2_role: "Senior Consultant, STC",
             rev_2_quote: '"Security was my main concern. Knowing the encryption happens locally gives me peace of mind."',
             rev_3_name: "Khalid Ibrahim",
-            rev_3_role: "Entrepreneur, Jeddah",
+            rev_3_role: "Logistics Manager, Aramco",
             rev_3_quote: '"The frictionless upload via WhatsApp is a game-changer for my daily operations."',
             rev_4_name: "Laila Hassan",
-            rev_4_role: "Marketing Lead, Dammam",
+            rev_4_role: "Marketing Specialist, Dammam",
             rev_4_quote: '"Finally, a storage solution that feels as fast as messaging. No more complex apps."',
             rev_5_name: "Omar Farooq",
-            rev_5_role: "Startup Founder, NEOM",
+            rev_5_role: "Tech Lead, NEOM",
             rev_5_quote: '"KeepBox is the missing piece for our mobile-first team. Efficient and local."',
             price_title: "Simple Pricing",
             price_subtitle: "Start for free, upgrade when you need more.",
@@ -729,11 +745,11 @@
             price_pro_feat_2: "High-Speed Download",
             price_pro_feat_3: "Priority Support",
             price_pro_feat_4: "No File Size Limit",
-            btn_upgrade_now: "Upgrade Now",
+            btn_upgrade_now: "Start on WhatsApp",
             cta_title: "Start saving your files in seconds",
             cta_scan: "Scan the QR code to start instantly",
             cta_click: "Or open WhatsApp directly",
-            cta_btn: "Chat on WhatsApp +966 55 996 2280",
+            cta_btn: "Start on WhatsApp",
             footer_desc: "The world's most frictionless cloud storage integration, designed for the future of mobile-first users.",
             footer_product: "Product",
             footer_priv: "Privacy Policy",
@@ -764,9 +780,10 @@
             nav_contact: "اتصل بنا",
             btn_get_started: "ابدأ الآن",
             hero_live: "🇸🇦 مستضاف في المملكة العربية السعودية",
-            hero_title: "احفظ، أرسل، وادِر ملفاتك في ثوانٍ — <span class=\"text-primary\">عبر واتساب</span>",
+            hero_title: "احفظ وأدر ملفاتك فورًا — <span class=\"text-primary\">عبر واتساب</span>",
+            hero_btn_save: "ابدأ عبر واتساب",
+            cta_trust: "لا يلزم التسجيل",
             hero_subtitle: "بدون تطبيقات. بدون تسجيل. فقط أرسل ملفاتك عبر واتساب ونحن نحفظها بأمان باستخدام تشفير عالي المستوى",
-            hero_btn_save: "ابدأ الحفظ عبر واتساب",
             chat_status: "متصل | مشفر سحابياً",
             chat_msg_1: "أرسل لي ملف PDF من اجتماع اليوم.",
             chat_bot_name: "روبوت KeepBox",
@@ -809,7 +826,7 @@
             price_starter_feat_1: "سعة تخزين ٣ جيجابايت",
             price_starter_feat_2: "رفع ملفات غير محدود",
             price_starter_feat_3: "دعم أساسي",
-            btn_start_free: "ابدأ مجاناً",
+            btn_start_free: "ابدأ عبر واتساب",
             price_popular: "الأكثر شيوعاً",
             plan_pro: "الباقة الاحترافية",
             price_mo: "/ شهر",
@@ -817,11 +834,11 @@
             price_pro_feat_2: "تنزيل عالي السرعة",
             price_pro_feat_3: "دعم ذو أولوية",
             price_pro_feat_4: "بدون حد لحجم الملف",
-            btn_upgrade_now: "ترقية الآن",
+            btn_upgrade_now: "ابدأ عبر واتساب",
             cta_title: "ابدأ حفظ ملفاتك خلال ثوانٍ",
             cta_scan: "امسح الرمز للبدء فورًا",
             cta_click: "أو افتح واتساب مباشرة",
-            cta_btn: "تواصل عبر واتساب +966 55 996 2280",
+            cta_btn: "ابدأ عبر واتساب",
             footer_desc: "أكثر أنظمة التخزين السحابية سلاسة في العالم، مصممة لمستقبل المستخدمين المعتمدين على الهاتف المحمول.",
             footer_product: "المنتج",
             footer_priv: "سياسة الخصوصية",
