@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="head_title">KeepBox | Terms of Service</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="icon" type="image/svg+xml" href="assets/keepbox-visual-logo.svg">
+    <link rel="apple-touch-icon" href="assets/keepbox-visual-logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#25D366',
+                        background: 'var(--background)',
+                        surface: 'var(--surface)',
+                        'on-surface': 'var(--on-surface)',
+                        'outline-variant': 'var(--outline-variant)',
+                    },
+                    fontFamily: {
+                        headline: ['Manrope'],
+                        body: ['Inter'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --background: #0e0e0e;
+            --on-background: #ffffff;
+            --surface: #0e0e0e;
+            --on-surface: #ffffff;
+            --outline-variant: #484847;
+            --on-surface-variant: #adaaaa;
+            --glass-bg: rgba(26, 26, 26, 0.6);
+            --glass-border: rgba(72, 72, 71, 0.3);
+        }
+
+        .light {
+            --background: #f8fafc;
+            --on-background: #0f172a;
+            --surface: #ffffff;
+            --on-surface: #0f172a;
+            --outline-variant: #e2e8f0;
+            --on-surface-variant: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(226, 232, 240, 0.5);
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body transition-colors duration-300">
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl border-b border-outline-variant/10">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/keepbox-visual-logo.svg" alt="KeepBox" class="h-8">
+                <img src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group" title="Switch Language">
+                    <span class="material-symbols-outlined text-neutral-400 group-hover:text-primary transition-colors">translate</span>
+                </button>
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group" title="Toggle Theme">
+                    <span id="theme-icon" class="material-symbols-outlined text-neutral-400 group-hover:text-primary transition-colors">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 px-6">
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="space-y-4">
+                <h1 class="font-headline font-extrabold text-4xl md:text-6xl tracking-tight" data-i18n="title">Terms of Service</h1>
+                <p class="text-primary font-bold" data-i18n="effective_date">Effective Date: 10-01-2026</p>
+                <div class="p-6 bg-surface-container rounded-3xl border border-outline-variant/10 text-sm opacity-80 space-y-2">
+                    <p data-i18n="provider">Service Provider: KEEP BOX Establishment</p>
+                    <p data-i18n="cr">CR: 7053010950</p>
+                    <p data-i18n="vat">VAT: 3144910777</p>
+                </div>
+            </div>
+
+            <div class="prose dark:prose-invert max-w-none space-y-8 text-on-surface-variant leading-relaxed md:text-lg rtl:text-right">
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-headline font-bold text-white border-b border-outline-variant/20 pb-2" data-i18n="s1_t">1) Definitions</h2>
+                    <p data-i18n="s1_c">“Content” means any files, text, images, and other materials you upload. “Share Link” means any access method for third parties.</p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-headline font-bold text-white border-b border-outline-variant/20 pb-2" data-i18n="s4_t">4) What the Service Does</h2>
+                    <p data-i18n="s4_c">Keepbox enables you to upload, store, organize, and share Content via WhatsApp retrieval links.</p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-headline font-bold text-white border-b border-outline-variant/20 pb-2" data-i18n="s6_t">6) Acceptable Use</h2>
+                    <p data-i18n="s6_c">You agree not to use the Service in any way that violates Saudi laws, religious values, or the rights of others.</p>
+                </section>
+
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-headline font-bold text-white border-b border-outline-variant/20 pb-2" data-i18n="s10_t">10) Data Residency</h2>
+                    <p data-i18n="s10_c">Keepbox hosts Service data in Dammam, Saudi Arabia. Messages sent through WhatsApp are processed by Meta under their policies.</p>
+                </section>
+
+                <section class="bg-surface-container rounded-3xl p-8 border border-outline-variant/10 space-y-4">
+                    <h2 class="text-2xl font-headline font-bold text-white" data-i18n="s22_t">Contact</h2>
+                    <p data-i18n="s22_w">WhatsApp: +966 55 996 2280</p>
+                    <p data-i18n="s22_e">Support: support@keepbox.com.sa</p>
+                    <p data-i18n="s22_a">Address: 2788 Um Al Dom 210, 27535 Umm Ad Dawm, Saudi Arabia</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simplified Footer -->
+    <footer class="w-full border-t border-outline-variant/10 bg-[#0e0e0e] text-on-surface mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-8 py-12 max-w-7xl mx-auto rtl:flex-row-reverse">
+            <div class="flex items-center gap-2">
+                <img src="assets/keepbox-visual-logo.svg" alt="" class="h-8">
+                <img src="assets/keepbox-text-logo.svg" alt="" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
+                <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+                <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+                <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="contact-us.html" data-i18n="footer_contact">Contact</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center text-xs text-neutral-600">
+            <p data-i18n="footer_copy">© 2026 KeepBox. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                head_title: "KeepBox | Terms of Service",
+                title: "Keepbox Terms of Service",
+                effective_date: "Effective Date: 10-01-2026",
+                provider: "Service Provider: KEEP BOX Establishment",
+                cr: "Commercial Registration (CR): 7053010950",
+                vat: "VAT Registration: 3144910777",
+                s1_t: "1) Definitions",
+                s1_c: "“Content” means any files, text, images, audio, video, links, and other materials you upload, store, send, or share using the Service. “Share Link” means any link or access method that enables third parties to access Content.",
+                s4_t: "4) What the Service Does",
+                s4_c: "Keepbox enables you to: upload and store Content; organize Content (search, labels, folders); create Share Links; retrieve Content download links on demand by messaging us on WhatsApp.",
+                s6_t: "6) Acceptable Use",
+                s6_c: "You agree not to use the Service in any way that violates Saudi laws, regulations, public order, religious values, public morals, or the rights of others. Prohibited conduct includes acts criminalized under the Saudi Anti-Cyber Crime Law.",
+                s10_t: "10) Data Residency",
+                s10_c: "Keepbox hosts and stores Service data in Dammam, Saudi Arabia, and we intend to keep Service hosting within KSA. Messages sent through WhatsApp may be processed by Meta systems.",
+                s22_t: "Contact",
+                s22_w: "WhatsApp: +966 55 996 2280",
+                s22_e: "Support: support@keepbox.com.sa",
+                s22_a: "Address: 2788 Um Al Dom 210, 27535 Umm Ad Dawm, Saudi Arabia",
+                footer_priv: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_contact: "Contact",
+                footer_copy: "© 2026 KeepBox. All rights reserved."
+            },
+            ar: {
+                head_title: "KeepBox | شروط الخدمة",
+                title: "شروط خدمة Keepbox",
+                effective_date: "تاريخ السريان: 10-01-2026",
+                provider: "مزود الخدمة: مؤسسة حافظ الصندوق (KEEP BOX)",
+                cr: "السجل التجاري: 7053010950",
+                vat: "الرقم الضريبي: 3144910777",
+                s1_t: "1) تعريفات",
+                s1_c: "تعني 'المحتوى' أي ملفات، نصوص، صور، أو مواد أخرى ترفعها أو تخزنها. 'رابط المشاركة' يعني أي طريقة تمكن أطرافاً أخرى من الوصول للمحتوى.",
+                s4_t: "4) ماذا تقدم الخدمة",
+                s4_c: "تمكنك Keepbox من: رفع وتخزين المحتوى؛ تنظيم المحتوى؛ إنشاء روابط مشاركة؛ واسترجاع روابط التحميل عند الطلب عبر واتساب.",
+                s6_t: "6) الاستخدام المقبول",
+                s6_c: "توافق على عدم استخدام الخدمة بأي شكل ينتهك القوانين السعودية، القيم الدينية، أو حقوق الآخرين. يشمل ذلك الأفعال المجرمة بموجب نظام مكافحة جرائم المعلوماتية.",
+                s10_t: "10) مكان تخزين البيانات",
+                s10_c: "يستضيف Keepbox بيانات الخدمة في الدمام، المملكة العربية السعودية. الرسائل المرسلة عبر واتساب قد تتم معالجتها بواسطة أنظمة Meta تحت سياساتها الخاصة.",
+                s22_t: "للتواصل",
+                s22_w: "واتساب: 966559962280+",
+                s22_e: "الدعم الإجتماعي: support@keepbox.com.sa",
+                s22_a: "العنوان: 2788 أم الدوم 210، 27535 أم الدوم، المملكة العربية السعودية",
+                footer_priv: "سياسة الخصوصية",
+                footer_terms: "شروط الخدمة",
+                footer_contact: "اتصل بنا",
+                footer_copy: "© 2026 KeepBox. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = localStorage.getItem('keepbox_lang') || 'ar';
+        let currentTheme = localStorage.getItem('keepbox_theme') || 'dark';
+
+        function updateLanguage() {
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            localStorage.setItem('keepbox_lang', currentLang);
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            updateLanguage();
+        }
+
+        function updateTheme() {
+            const themeIcon = document.getElementById('theme-icon');
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                if(themeIcon) themeIcon.textContent = 'light_mode';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                if(themeIcon) themeIcon.textContent = 'dark_mode';
+            }
+            localStorage.setItem('keepbox_theme', currentTheme);
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            updateTheme();
+        }
+
+        updateLanguage();
+        updateTheme();
+    </script>
+</body>
+</html>

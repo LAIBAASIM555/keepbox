@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="head_title">KeepBox | The Frictionless Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="assets/keepbox-visual-logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/keepbox-visual-logo.svg" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "var(--surface-dim)",
+                        "surface-variant": "var(--surface-variant)",
+                        "inverse-primary": "#006e30",
+                        "error-container": "#b92902",
+                        "background": "var(--background)",
+                        "on-primary-container": "#003915",
+                        "secondary-fixed-dim": "#6aecaa",
+                        "outline-variant": "var(--outline-variant)",
+                        "surface": "var(--surface)",
+                        "surface-container-lowest": "var(--surface-container-lowest)",
+                        "primary-fixed": "#5dfd8a",
+                        "error": "#ff7351",
+                        "surface-bright": "var(--surface-bright)",
+                        "secondary-fixed": "#79fbb7",
+                        "primary": "#25D366",
+                        "outline": "#767575",
+                        "on-background": "var(--on-background)",
+                        "on-primary": "#003915",
+                        "surface-tint": "#25D366",
+                        "on-primary-fixed-variant": "#00682d",
+                        "surface-container-low": "var(--surface-container-low)",
+                        "error-dim": "#d53d18",
+                        "inverse-on-surface": "#565555",
+                        "on-surface": "var(--on-surface)",
+                        "primary-fixed-dim": "#4cee7d",
+                        "on-tertiary-container": "#004b56",
+                        "on-tertiary-fixed-variant": "#005561",
+                        "on-tertiary-fixed": "#00363e",
+                        "on-error": "#450900",
+                        "on-secondary-fixed": "#00492c",
+                        "on-secondary-container": "#e1ffe9",
+                        "on-secondary": "#005e3a",
+                        "secondary-dim": "#6aecaa",
+                        "on-primary-fixed": "#00481d",
+                        "secondary-container": "#006d44",
+                        "on-surface-variant": "var(--on-surface-variant)",
+                        "tertiary-dim": "#00d1ed",
+                        "primary-dim": "#4cee7d",
+                        "on-error-container": "#ffd2c8",
+                        "primary-container": "#12cb5f",
+                        "inverse-surface": "var(--inverse-surface)",
+                        "tertiary-container": "#00e0fe",
+                        "surface-container": "var(--surface-container)",
+                        "tertiary": "#7ee9ff",
+                        "secondary": "#79fbb7",
+                        "surface-container-high": "var(--surface-container-high)",
+                        "tertiary-fixed": "#00e0fe",
+                        "on-secondary-fixed-variant": "#006942",
+                        "surface-container-highest": "var(--surface-container-highest)",
+                        "on-tertiary": "#005561",
+                        "tertiary-fixed-dim": "#00d1ed"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        :root {
+            --background: #0e0e0e;
+            --on-background: #ffffff;
+            --surface: #0e0e0e;
+            --on-surface: #ffffff;
+            --surface-variant: #262626;
+            --on-surface-variant: #adaaaa;
+            --surface-container: #1a1a1a;
+            --surface-container-low: #131313;
+            --surface-container-high: #20201f;
+            --surface-container-highest: #262626;
+            --surface-container-lowest: #000000;
+            --surface-dim: #0e0e0e;
+            --surface-bright: #2c2c2c;
+            --outline-variant: #484847;
+            --inverse-surface: #fcf9f8;
+            --glass-bg: rgba(26, 26, 26, 0.6);
+            --glass-border: rgba(72, 72, 71, 0.3);
+        }
+
+        .light {
+            --background: #f8fafc;
+            --on-background: #0f172a;
+            --surface: #ffffff;
+            --on-surface: #0f172a;
+            --surface-variant: #f1f5f9;
+            --on-surface-variant: #64748b;
+            --surface-container: #ffffff;
+            --surface-container-low: #f8fafc;
+            --surface-container-high: #f1f5f9;
+            --surface-container-highest: #e2e8f0;
+            --surface-container-lowest: #ffffff;
+            --surface-dim: #cbd5e1;
+            --surface-bright: #ffffff;
+            --outline-variant: #e2e8f0;
+            --inverse-surface: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(226, 232, 240, 0.5);
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(37, 211, 102, 0.15) 0%, transparent 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--outline-variant);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--on-surface-variant);
+        }
+
+        /* Phone Mockup Styles */
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background: #121212;
+            border-radius: 45px;
+            border: 8px solid #262626;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+            margin: 0 auto;
+            overflow: hidden;
+            transform: rotate3d(1, -1, 0, 10deg);
+            transition: transform 0.5s ease;
+        }
+        .phone-mockup:hover {
+            transform: rotate3d(0, 0, 0, 0deg);
+        }
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: #262626;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 20;
+        }
+        .whatsapp-header {
+            background: #075E54;
+            color: white;
+            padding: 40px 16px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Marquee Styles */
+        .marquee-container {
+            overflow: hidden;
+            user-select: none;
+            display: flex;
+            gap: 2rem;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            min-width: 100%;
+            animation: scroll 40s linear infinite;
+        }
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* SA Map Visual */
+        .sa-map-container {
+            position: relative;
+            background: radial-gradient(circle at center, rgba(37, 211, 102, 0.05) 0%, transparent 70%);
+        }
+        .map-pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+        .map-pulse::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.3); opacity: 1; }
+            80%, 100% { transform: scale(1.5); opacity: 0; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .glass-glow {
+            box-shadow: 0 0 40px -10px var(--primary);
+        }
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Page Load Animation */
+        @keyframes page-fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            animation: page-fade 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl shadow-sm dark:shadow-2xl shadow-black/10 dark:shadow-black/50 border-b border-outline-variant/10 transition-colors duration-300">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<a href="https://keepbox.com.sa" class="flex items-center gap-2">
+    <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8 transition-all">
+    <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+</a>
+<div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight rtl:space-x-reverse">
+<a class="nav-link text-neutral-400 hover:text-primary transition-colors duration-300" href="#features" data-i18n="nav_features">Features</a>
+<a class="nav-link text-neutral-400 hover:text-primary transition-colors duration-300" href="#security" data-i18n="nav_security">Security</a>
+<a class="nav-link text-neutral-400 hover:text-primary transition-colors duration-300" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+<a class="nav-link text-neutral-400 hover:text-primary transition-colors duration-300" href="#faq" data-i18n="nav_faq">FAQ</a>
+<a class="nav-link text-neutral-400 hover:text-primary transition-colors duration-300" href="contact-us.html" data-i18n="nav_contact">Contact Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="toggleLanguage()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group" title="Switch Language">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">translate</span>
+</button>
+<button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group" title="Toggle Theme">
+    <span id="theme-icon" class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">dark_mode</span>
+</button>
+<button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })" class="hidden md:block bg-primary text-on-primary font-headline font-bold px-6 py-2 rounded-full hover:bg-primary-container hover:scale-105 transition-all duration-300 active:scale-95" data-i18n="btn_get_started">Get Started</button>
+</div>
+</div>
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#25D366]/20 to-transparent"></div>
+</nav>
+<main class="relative overflow-hidden">
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-glow reveal">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center rtl:text-right ltr:text-left">
+<div class="space-y-8">
+<div class="inline-flex items-center space-x-2 rtl:space-x-reverse bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold tracking-widest uppercase text-on-surface-variant" data-i18n="hero_live">Live in the Kingdom</span>
+</div>
+                                                <h1 class="font-headline font-extrabold text-5xl md:text-7xl leading-tight tracking-tighter" data-i18n="hero_title">
+                        Save, send, and manage your files in seconds — <span class="text-primary">via WhatsApp</span>.
+                </h1>
+                <p class="text-xl text-on-surface-variant md:text-2xl leading-relaxed opacity-80" data-i18n="hero_subtitle">No apps. No signups. Just send your files on WhatsApp and we store them securely with military-grade encryption.</p>
+                                <div class="flex flex-col sm:flex-row gap-4 pt-4 rtl:flex-row-reverse sm:rtl:justify-end">
+                <a href="https://wa.me/966559962280" class="flex items-center justify-center space-x-3 rtl:space-x-reverse bg-primary text-on-primary px-8 py-4 rounded-2xl font-headline font-bold text-lg hover:shadow-lg hover:shadow-primary/20 hover:translate-y-[-2px] transition-all active:scale-95">
+                <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-6 h-6 brightness-0 invert" alt="WhatsApp">
+                <span data-i18n="hero_btn_save">Save via WhatsApp</span>
+                </a>
+
+</div>
+</div>
+<div class="relative flex justify-center">
+    <div class="relative group animate-float">
+        <img loading="lazy" src="assets/mobile.png" class="w-full max-w-[450px] h-auto group-hover:scale-105 transition-transform duration-700" alt="KeepBox Mobile Vault">
+        <!-- Pulse Effect -->
+        <div class="absolute -top-5 -right-5 w-12 h-12 bg-primary rounded-full blur-xl opacity-50 animate-pulse"></div>
+        <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -z-10"></div>
+    </div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section id="features" class="py-24 bg-surface-container-low reveal">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight" data-i18n="feat_title">Three steps to infinite storage</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-6 rtl:text-right ltr:text-left">
+<!-- Feature Card 1 -->
+<div class="bg-surface-container p-8 rounded-3xl border border-outline-variant/10 hover:translate-y-[-8px] transition-all group">
+<div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">no_accounts</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-2" data-i18n="feat_1_title">No app installation required</h3>
+<p class="text-on-surface-variant font-light leading-relaxed" data-i18n="feat_1_desc">KeepBox lives right in your favorite chat app. No more cluttered home screens or heavy downloads.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-surface-container-highest p-8 rounded-3xl border border-primary/10 hover:translate-y-[-8px] transition-all group md:scale-105">
+<div class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary text-3xl rtl:rotate-180">send</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-2 text-primary" data-i18n="feat_2_title">Just Send &amp; Save</h3>
+<p class="text-on-surface-variant font-light leading-relaxed" data-i18n="feat_2_desc">Forward any document, photo, or audio note. We handle the indexing and secure categorization instantly.</p>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-surface-container p-8 rounded-3xl border border-outline-variant/10 hover:translate-y-[-8px] transition-all group">
+<div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">encrypted</span>
+</div>
+<h3 class="font-headline font-bold text-2xl mb-2" data-i18n="feat_3_title">Military Encryption</h3>
+<p class="text-on-surface-variant font-light leading-relaxed" data-i18n="feat_3_desc">Your data is zero-knowledge encrypted before it even hits our local Kingdom servers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy & Local Hosting Section -->
+<section id="security" class="py-24 relative overflow-hidden reveal">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<div class="relative order-2 md:order-1 flex justify-center items-center py-12">
+    <div class="relative group">
+        <!-- Shadow depth -->
+        <div class="absolute inset-4 bg-primary/20 blur-[60px] rounded-full"></div>
+        <img loading="lazy" src="assets/dammam.png" class="w-full h-auto max-w-lg rounded-[2.5rem] shadow-2xl border border-outline-variant/10 group-hover:translate-y-[-10px] transition-transform duration-500 relative z-10" alt="Hosted in Dammam">
+        <!-- Location Tag -->
+        <div class="absolute top-[35%] right-[22%] z-20 flex flex-col items-start bg-neutral-900/80 backdrop-blur-xl px-4 py-3 rounded-2xl border border-primary/30 shadow-[0_0_20px_rgba(37,211,102,0.2)] group-hover:translate-y-[-15px] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(37,211,102,0.4)]">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-symbols-outlined text-primary text-base animate-pulse" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                <span class="text-sm font-extrabold tracking-tight text-white whitespace-nowrap" data-i18n="priv_loc">Dammam, KSA</span>
+            </div>
+            <div class="flex items-center gap-1.5 opacity-60">
+                <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-primary/80" data-i18n="priv_latency">Latency: 4ms</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="order-1 md:order-2 space-y-6 rtl:text-right ltr:text-left">
+<div class="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(37,211,102,0.1)]">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm font-bold text-primary" data-i18n="priv_latency">Latency: 4ms</span>
+</div>
+<h2 class="font-headline font-extrabold text-3xl md:text-5xl leading-tight" data-i18n="priv_title">Your data stays in Saudi Arabia.</h2>
+<p class="text-lg text-on-surface-variant max-w-xl leading-relaxed" data-i18n="priv_desc">All files are securely stored on local Saudi infrastructure in Dammam — ensuring ultra-fast access, full data sovereignty, and compliance with regional regulations.</p>
+<div class="flex items-center space-x-6 rtl:space-x-reverse pt-4">
+<div class="flex flex-col items-center">
+<div class="text-3xl font-headline font-bold text-on-surface" data-i18n="priv_num_1">100%</div>
+<div class="text-[10px] uppercase tracking-tighter text-on-surface-variant" data-i18n="priv_num_1_sub">Sovereignty</div>
+</div>
+<div class="w-[1px] h-10 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<div class="text-3xl font-headline font-bold text-on-surface" data-i18n="priv_num_2">GDPR</div>
+<div class="text-[10px] uppercase tracking-tighter text-on-surface-variant" data-i18n="priv_num_2_sub">Compliant</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant/10 reveal">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 rtl:text-right ltr:text-left">
+<div>
+<h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight" data-i18n="trust_title">Trusted by 10,000+ users in the Gulf</h2>
+</div>
+<div class="flex space-x-2 rtl:space-x-reverse">
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-bright transition-colors rtl:rotate-180">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-bright transition-colors rtl:rotate-180">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="marquee-container">
+    <div class="marquee-content rtl:flex-row-reverse">
+        <!-- Review 1 -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Ahmed" src="https://i.pravatar.cc/150?u=ahmed"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_1_name">Ahmed Al-Qahtani</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_1_role">Creative Director, Dammam</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_1_quote">"KeepBox transformed how I handle client briefings. I just send the voice note on WhatsApp."</p>
+        </div>
+        <!-- Review 2 -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Sarah" src="https://i.pravatar.cc/150?u=sarah"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_2_name">Sarah Mansour</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_2_role">Legal Consultant, Dubai</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_2_quote">"Security was my main concern. Knowing the encryption happens locally gives me peace of mind."</p>
+        </div>
+        <!-- Review 3 -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Khalid" src="https://i.pravatar.cc/150?u=khalid"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_3_name">Khalid Ibrahim</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_3_role">Entrepreneur, Jeddah</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_3_quote">"The frictionless upload via WhatsApp is a game-changer for my daily operations."</p>
+        </div>
+        <!-- Review 4 -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Laila" src="https://i.pravatar.cc/150?u=laila"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_4_name">Laila Hassan</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_4_role">Marketing Lead, Dammam</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_4_quote">"Finally, a storage solution that feels as fast as messaging. No more complex apps."</p>
+        </div>
+        <!-- Review 5 -->
+        <div class="w-[350px] bg-surface-container p-8 rounded-3xl border border-outline-variant/10 relative overflow-hidden group flex-shrink-0">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-800">
+                    <img alt="Omar" src="https://i.pravatar.cc/150?u=omar"/>
+                </div>
+                <div>
+                    <h4 class="font-bold" data-i18n="rev_5_name">Omar Farooq</h4>
+                    <p class="text-xs text-on-surface-variant" data-i18n="rev_5_role">Startup Founder, NEOM</p>
+                </div>
+            </div>
+            <p class="text-lg italic text-on-surface font-light leading-relaxed" data-i18n="rev_5_quote">"KeepBox is the missing piece for our mobile-first team. Efficient and local."</p>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<!-- Pricing Section -->
+<section id="pricing" class="py-24 bg-background">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight mb-4" data-i18n="price_title">Simple Pricing</h2>
+<p class="text-on-surface-variant" data-i18n="price_subtitle">Start for free, upgrade when you need more.</p>
+</div>
+<div class="grid md:grid-cols-2 max-w-4xl mx-auto gap-8 rtl:text-right ltr:text-left">
+<!-- Starter Plan -->
+<div class="bg-surface-container p-10 rounded-[2.5rem] border border-outline-variant/10 flex flex-col hover:border-primary/20 transition-colors">
+<div class="mb-8">
+<h3 class="text-xl font-bold mb-2" data-i18n="plan_starter">Starter Plan</h3>
+<div class="flex items-baseline space-x-1 rtl:space-x-reverse">
+<span class="text-4xl font-headline font-extrabold">$0</span>
+<span class="text-on-surface-variant text-sm" data-i18n="price_forever">/ forever</span>
+</div>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span data-i18n="price_starter_feat_1">3GB Storage</span>
+</li>
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span data-i18n="price_starter_feat_2">Unlimited Uploads</span>
+</li>
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span data-i18n="price_starter_feat_3">Basic Support</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-2xl bg-surface-container-highest text-on-surface font-headline font-bold hover:bg-surface-bright transition-all active:scale-95" data-i18n="btn_start_free">Start Free</button>
+</div>
+<!-- Pro Plan -->
+<div class="bg-primary/5 p-10 rounded-[2.5rem] border-2 border-primary flex flex-col relative shadow-2xl shadow-primary/10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest min-w-max" data-i18n="price_popular">POPULAR</div>
+<div class="mb-8">
+<h3 class="text-xl font-bold mb-2 text-primary" data-i18n="plan_pro">Pro Plan</h3>
+<div class="flex items-baseline space-x-1 rtl:space-x-reverse">
+<span class="text-4xl font-headline font-extrabold">$3.99</span>
+<span class="text-on-surface-variant text-sm" data-i18n="price_mo">/ month</span>
+</div>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+<span data-i18n="price_pro_feat_1">10GB Storage</span>
+</li>
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+<span data-i18n="price_pro_feat_2">High-Speed Download</span>
+</li>
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+<span data-i18n="price_pro_feat_3">Priority Support</span>
+</li>
+<li class="flex items-center space-x-3 rtl:space-x-reverse text-sm">
+<span class="material-symbols-outlined text-primary text-xl">verified</span>
+<span data-i18n="price_pro_feat_4">No File Size Limit</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-2xl bg-primary text-on-primary font-headline font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all active:scale-95" data-i18n="btn_upgrade_now">Upgrade Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section id="faq" class="py-24 bg-surface-container-low reveal">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight mb-4" data-i18n="faq_title">Frequently Asked Questions</h2>
+        </div>
+        <div class="space-y-4 text-left rtl:text-right">
+            <!-- FAQ 1 -->
+            <div class="faq-item group">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 bg-surface-container rounded-3xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
+                    <span class="font-headline font-bold text-lg md:text-xl text-on-surface" data-i18n="faq_q1">Do I need to install an app?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
+                </button>
+                <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 text-on-surface-variant font-light leading-relaxed md:text-lg">
+                        <p data-i18n="faq_a1">No! KeepBox works entirely within WhatsApp. You just chat with our number like you would with a friend.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-item group">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 bg-surface-container rounded-3xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
+                    <span class="font-headline font-bold text-lg md:text-xl text-on-surface" data-i18n="faq_q2">Are my links shareable?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
+                </button>
+                <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 text-on-surface-variant font-light leading-relaxed md:text-lg">
+                        <p data-i18n="faq_a2">Yes. By default, files are private to you. However, you can request a "Public Link" from the bot for any file to share it with others.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-item group">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 bg-surface-container rounded-3xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
+                    <span class="font-headline font-bold text-lg md:text-xl text-on-surface" data-i18n="faq_q3">How do I delete my files?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
+                </button>
+                <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 text-on-surface-variant font-light leading-relaxed md:text-lg">
+                        <p data-i18n="faq_a3">You can reply to any file with "delete" or manage your storage through the link provided by the bot. You have full control.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-item group">
+                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 bg-surface-container rounded-3xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
+                    <span class="font-headline font-bold text-lg md:text-xl text-on-surface" data-i18n="faq_q4">What happens if I exceed 1GB?</span>
+                    <span class="material-symbols-outlined text-primary transition-transform duration-300 group-[.active]:rotate-180">expand_more</span>
+                </button>
+                <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="p-8 pt-0 text-on-surface-variant font-light leading-relaxed md:text-lg">
+                        <p data-i18n="faq_a4">We will notify you when you are close to the limit. You can then choose to delete old files or upgrade to the 10GB Pro plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary flex flex-col items-center justify-center text-on-primary text-center px-6 reveal">
+    <div class="max-w-4xl mx-auto space-y-8">
+        <h2 class="font-headline font-extrabold text-4xl md:text-6xl tracking-tight" data-i18n="cta_title">Start saving in seconds</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center bg-white/10 p-8 rounded-3xl backdrop-blur-lg border border-white/20">
+            <div class="space-y-4">
+                <div class="w-48 h-48 bg-white p-4 rounded-2xl mx-auto flex items-center justify-center shadow-2xl">
+                    <!-- QR Placeholder -->
+                    <div class="w-full h-full border-2 border-dashed border-primary/30 rounded-xl flex items-center justify-center text-primary/30 flex-col">
+                        <span class="material-symbols-outlined text-5xl">qr_code_2</span>
+                        <span class="text-[10px] font-bold mt-2">QR CODE</span>
+                    </div>
+                </div>
+                <p class="text-lg font-bold" data-i18n="cta_scan">Scan with your phone camera</p>
+            </div>
+            <div class="space-y-6">
+                <p class="text-lg opacity-80" data-i18n="cta_click">Or click the button below to open the chat directly in WhatsApp on your phone or desktop.</p>
+                <a href="https://wa.me/966559962280" class="inline-flex items-center justify-center space-x-3 rtl:space-x-reverse bg-white text-primary px-8 py-5 rounded-2xl font-headline font-extrabold text-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95">
+                    <img loading="lazy" src="assets/whatsapp-icon.svg" class="w-6 h-6" alt="">
+                    <span data-i18n="cta_btn">WhatsApp Open +966 55 996 2280</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<!-- Footer -->
+<footer id="contact" class="w-full border-t border-neutral-800/50 bg-[#0e0e0e] text-on-surface">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 px-8 py-12 max-w-7xl mx-auto rtl:flex-row-reverse">
+<div class="flex items-center gap-2">
+    <img loading="lazy" src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8 transition-all">
+    <img loading="lazy" src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0 transition-all">
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
+    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+    <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="contact-us.html" data-i18n="footer_contact">Contact</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Inter'] text-sm text-neutral-500" data-i18n="footer_copy">© 2026 KeepBox. All rights reserved.</p>
+<div class="flex items-center space-x-6 rtl:space-x-reverse">
+<a class="text-neutral-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-neutral-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">terminal</span></a>
+</div>
+</div>
+</footer>
+
+<script>
+    const translations = {
+        en: {
+            head_title: "KeepBox | The Frictionless Vault",
+            nav_features: "Features",
+            nav_security: "Security",
+            nav_pricing: "Pricing",
+            nav_faq: "FAQ",
+            nav_contact: "Contact Us",
+            btn_get_started: "Get Started",
+            hero_live: "🇸🇦 Hosted in Saudi Arabia",
+            hero_title: "Save, send, and manage your files in seconds — <span class=\"text-primary\">via WhatsApp</span>.",
+            hero_subtitle: "No apps. No signups. Just send your files on WhatsApp and we store them securely with military-grade encryption.",
+            hero_btn_save: "Start Saving on WhatsApp",
+            chat_status: "Online | Cloud Encrypted",
+            chat_msg_1: "Send me the PDF from today's meeting.",
+            chat_bot_name: "KeepBox Bot",
+            chat_msg_2: "File received and encrypted in Dammam Center. ✅",
+            feat_title: "Store your files in 3 simple steps",
+            feat_1_title: "No app needed",
+            feat_1_desc: "KeepBox works directly inside WhatsApp. No downloads, no extra apps.",
+            feat_2_title: "Send files on WhatsApp",
+            feat_2_desc: "Share any document, photo, or audio — we instantly save and organize it for you.",
+            feat_3_title: "Secure & private",
+            feat_3_desc: "Your files are protected with zero-knowledge encryption before reaching our servers.",
+            priv_loc: "Dammam, Saudi Arabia",
+            priv_latency: "Latency: 4ms",
+            priv_title: "Your data stays in Saudi Arabia.",
+            priv_desc: "All files are securely stored on local Saudi infrastructure in Dammam — ensuring ultra-fast access, full data sovereignty, and compliance with regional regulations.",
+            priv_num_1: "100%",
+            priv_num_1_sub: "Local Data Residency",
+            priv_num_2: "GDPR",
+            priv_num_2_sub: "Compliant",
+            trust_title: "Trusted by Saudi professionals",
+            rev_1_name: "Ahmad Al-Qahtani",
+            rev_1_role: "Creative Director, Dammam",
+            rev_1_quote: '"KeepBox transformed how I handle client briefings. I just send the voice note on WhatsApp."',
+            rev_2_name: "Sarah Mansour",
+            rev_2_role: "Legal Consultant, Dubai",
+            rev_2_quote: '"Security was my main concern. Knowing the encryption happens locally gives me peace of mind."',
+            rev_3_name: "Khalid Ibrahim",
+            rev_3_role: "Entrepreneur, Jeddah",
+            rev_3_quote: '"The frictionless upload via WhatsApp is a game-changer for my daily operations."',
+            rev_4_name: "Laila Hassan",
+            rev_4_role: "Marketing Lead, Dammam",
+            rev_4_quote: '"Finally, a storage solution that feels as fast as messaging. No more complex apps."',
+            rev_5_name: "Omar Farooq",
+            rev_5_role: "Startup Founder, NEOM",
+            rev_5_quote: '"KeepBox is the missing piece for our mobile-first team. Efficient and local."',
+            price_title: "Simple Pricing",
+            price_subtitle: "Start for free, upgrade when you need more.",
+            plan_starter: "Starter Plan",
+            price_forever: "/ forever",
+            price_starter_feat_1: "3GB Storage",
+            price_starter_feat_2: "Unlimited Uploads",
+            price_starter_feat_3: "Basic Support",
+            btn_start_free: "Start Free",
+            price_popular: "POPULAR",
+            plan_pro: "Pro Plan",
+            price_mo: "/ month",
+            price_pro_feat_1: "10GB Storage",
+            price_pro_feat_2: "High-Speed Download",
+            price_pro_feat_3: "Priority Support",
+            price_pro_feat_4: "No File Size Limit",
+            btn_upgrade_now: "Upgrade Now",
+            cta_title: "Start saving in seconds",
+            cta_scan: "Scan with your phone camera",
+            cta_click: "Or click the button below to open the chat directly in WhatsApp on your phone or desktop.",
+            cta_btn: "WhatsApp +966 55 996 2280",
+            footer_desc: "The world's most frictionless cloud storage integration, designed for the future of mobile-first users.",
+            footer_product: "Product",
+            footer_priv: "Privacy Policy",
+            footer_sec: "Security Protocol",
+            footer_company: "Company",
+            footer_terms: "Terms of Service",
+            footer_contact: "Contact",
+            footer_res: "Resources",
+            footer_api: "API Documentation",
+            footer_status: "System Status",
+            footer_copy: "© 2026 KeepBox. All rights reserved.",
+            faq_title: "Frequently Asked Questions",
+            faq_q1: "Do I need to install an app?",
+            faq_a1: "No! KeepBox works entirely within WhatsApp. You just chat with our number like you would with a friend.",
+            faq_q2: "Are my links shareable?",
+            faq_a2: "Yes. By default, files are private to you. However, you can request a 'Public Link' from the bot for any file to share it with others.",
+            faq_q3: "How do I delete my files?",
+            faq_a3: "You can reply to any file with 'delete' or manage your storage through the link provided by the bot. You have full control.",
+            faq_q4: "What happens if I exceed 1GB?",
+            faq_a4: "We will notify you when you are close to the limit. You can then choose to delete old files or upgrade to the 10GB Pro plan."
+        },
+        ar: {
+            head_title: "KeepBox | الخزنة السلسة",
+            nav_features: "المميزات",
+            nav_security: "الأمان",
+            nav_pricing: "الأسعار",
+            nav_faq: "الأسئلة الشائعة",
+            nav_contact: "اتصل بنا",
+            btn_get_started: "ابدأ الآن",
+            hero_live: "🇸🇦 مستضاف في المملكة العربية السعودية",
+            hero_title: "احفظ، أرسل، وادِر ملفاتك في ثوانٍ — <span class=\"text-primary\">عبر واتساب</span>",
+            hero_subtitle: "بدون تطبيقات. بدون تسجيل. فقط أرسل ملفاتك عبر واتساب ونحن نحفظها بأمان باستخدام تشفير عالي المستوى",
+            hero_btn_save: "ابدأ الحفظ عبر واتساب",
+            chat_status: "متصل | مشفر سحابياً",
+            chat_msg_1: "أرسل لي ملف PDF من اجتماع اليوم.",
+            chat_bot_name: "روبوت KeepBox",
+            chat_msg_2: "تم استلام الملف وتشفيره في مركز الدمام. ✅",
+            feat_title: "احفظ ملفاتك في 3 خطوات بسيطة",
+            feat_1_title: "بدون تطبيق",
+            feat_1_desc: "يعمل KeepBox مباشرة داخل واتساب — بدون تحميل أو تعقيد",
+            feat_2_title: "أرسل ملفاتك عبر واتساب",
+            feat_2_desc: "أرسل أي مستند أو صورة أو تسجيل صوتي — يتم حفظها وتنظيمها فورًا",
+            feat_3_title: "آمن وخاص",
+            feat_3_desc: "يتم تشفير ملفاتك بتقنية بدون معرفة قبل وصولها إلى خوادمنا",
+            priv_loc: "الدمام، المملكة العربية السعودية",
+            priv_latency: "زمن الانتقال: ٤ ميلي ثانية",
+            priv_title: "بياناتك تبقى داخل المملكة العربية السعودية",
+            priv_desc: "يتم تخزين جميع الملفات على بنية تحتية محلية في الدمام، مما يضمن سرعة فائقة، وسيادة كاملة على البيانات، والامتثال للأنظمة المحلية",
+            priv_num_1: "١٠٠٪",
+            priv_num_1_sub: "سيادة محلية",
+            priv_num_2: "GDPR",
+            priv_num_2_sub: "متوافق",
+            trust_title: "يثق بنا محترفو المملكة",
+            rev_1_name: "أحمد القحطاني",
+            rev_1_role: "مدير إبداعي، الدمام",
+            rev_1_quote: '"غيّر KeepBox طريقة تعاملي مع ملخصات العملاء. أرسل الرسالة الصوتية على واتساب ويتم نسخها احتياطيًا على الفور."',
+            rev_2_name: "سارة منصور",
+            rev_2_role: "مستشارة قانونية، دبي",
+            rev_2_quote: '"كان الأمان هو شاغلي الرئيسي. معرفة أن التشفير يحدث محلياً يمنحني راحة بال تامة."',
+            rev_3_name: "خالد إبراهيم",
+            rev_3_role: "رائد أعمال، جدة",
+            rev_3_quote: '"الرفع السلس عبر واتساب غير قواعد اللعبة لعملياتي اليومية بشكل كامل."',
+            rev_4_name: "ليلى حسن",
+            rev_4_role: "مسؤولة تسويق، الدمام",
+            rev_4_quote: '"أخيراً، حل تخزين يشبه سرعة المراسلة. لا تطبيقات معقدة بعد الآن."',
+            rev_5_name: "عمر فاروق",
+            rev_5_role: "مؤسس شركة ناشئة، نيوم",
+            rev_5_quote: '"KeepBox هو القطعة المفقودة لفريقنا الذي يعتمد على الهاتف. كفاءة ومحلية."',
+            price_title: "تسعير بسيط",
+            price_subtitle: "ابدأ مجاناً، وقم بالترقية عندما تحتاج للمزيد.",
+            plan_starter: "الباقة الأساسية",
+            price_forever: "/ للأبد",
+            price_starter_feat_1: "سعة تخزين ٣ جيجابايت",
+            price_starter_feat_2: "رفع ملفات غير محدود",
+            price_starter_feat_3: "دعم أساسي",
+            btn_start_free: "ابدأ مجاناً",
+            price_popular: "الأكثر شيوعاً",
+            plan_pro: "الباقة الاحترافية",
+            price_mo: "/ شهر",
+            price_pro_feat_1: "سعة تخزين ١٠ جيجابايت",
+            price_pro_feat_2: "تنزيل عالي السرعة",
+            price_pro_feat_3: "دعم ذو أولوية",
+            price_pro_feat_4: "بدون حد لحجم الملف",
+            btn_upgrade_now: "ترقية الآن",
+            cta_title: "ابدأ الحفظ في ثوانٍ",
+            cta_scan: "امسح بالكاميرا",
+            cta_click: "أو اضغط على الزر أدناه لفتح المحادثة مباشرة في واتساب على هاتفك أو جهاز الكمبيوتر.",
+            cta_btn: "واتساب +966 55 996 2280",
+            footer_desc: "أكثر أنظمة التخزين السحابية سلاسة في العالم، مصممة لمستقبل المستخدمين المعتمدين على الهاتف المحمول.",
+            footer_product: "المنتج",
+            footer_priv: "سياسة الخصوصية",
+            footer_sec: "بروتوكول الأمان",
+            footer_company: "الشركة",
+            footer_terms: "شروط الخدمة",
+            footer_contact: "اتصل بنا",
+            footer_res: "الموارد",
+            footer_api: "وثائق API",
+            footer_status: "حالة النظام",
+            footer_copy: "© 2026 KeepBox. جميع الحقوق محفوظة.",
+            faq_title: "الأسئلة الشائعة",
+            faq_q1: "هل أحتاج إلى تثبيت تطبيق؟",
+            faq_a1: "لا! KeepBox يعمل بالكامل داخل تطبيق واتساب. يمكنك الدردشة مع رقمنا تماماً كما تفعل مع أي صديق.",
+            faq_q2: "هل روابط ملفاتي قابلة للمشاركة؟",
+            faq_a2: "نعم، ملفاتك خاصة، ولكن يمكنك طلب 'رابط عام' من البوت لأي ملف لمشاركته مع الآخرين.",
+            faq_q3: "كيف أقوم بحذف ملفاتي؟",
+            faq_a3: "يمكنك حذف ملف أو إدارة مساحة التخزين عبر الرابط الذي يزوده البوت. لديك السيطرة الكاملة.",
+            faq_q4: "ماذا يحدث إذا تجاوزت الحد المسموح (1 جيجا)؟",
+            faq_a4: "سنحذرك عندما تقترب من الحد، لتتمكن من الحذف أو الترقية إلى باقة برو (10 جيجابايت)."
+        }
+    };
+
+    let currentLang = localStorage.getItem('keepbox_lang') || 'ar'; // Default Arabic
+    let currentTheme = localStorage.getItem('keepbox_theme') || 'dark'; // Default Dark
+
+    function updateLanguage() {
+        document.documentElement.lang = currentLang;
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) {
+                if (el.tagName.toLowerCase() === 'title' || el.hasAttribute('title')) {
+                    el.textContent = translations[currentLang][key]; // For simple text/title tags
+                } else if (el.hasAttribute('placeholder')) {
+                    el.placeholder = translations[currentLang][key];
+                } else {
+                    el.innerHTML = translations[currentLang][key]; // To support HTML injection like spans
+                }
+            }
+        });
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        localStorage.setItem('keepbox_lang', currentLang);
+        updateLanguage();
+    }
+
+    function updateTheme() {
+        const themeIcon = document.getElementById('theme-icon');
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            if(themeIcon) themeIcon.textContent = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            if(themeIcon) themeIcon.textContent = 'dark_mode';
+        }
+    }
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('keepbox_theme', currentTheme);
+        updateTheme();
+    }
+
+    // Reveal on Scroll Logic
+    const reveal = () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        reveals.forEach(el => observer.observe(el));
+    };
+
+    // FAQ Toggle Logic
+    const toggleFaq = (button) => {
+        const item = button.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('active');
+
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+            }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+            item.classList.remove('active');
+            answer.style.maxHeight = '0';
+        } else {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+    };
+
+    // Scroll Spy Logic
+    const scrollSpy = () => {
+        const sections = ['features', 'security', 'pricing', 'faq', 'contact'];
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section && section.offsetTop <= scrollPos) {
+                    current = id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+                link.classList.add('text-neutral-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+                    link.classList.remove('text-neutral-400');
+                }
+            });
+        });
+    };
+
+    // Initialize state
+    updateLanguage();
+    updateTheme();
+    reveal();
+    scrollSpy();
+</script>
+</body>
+</html>

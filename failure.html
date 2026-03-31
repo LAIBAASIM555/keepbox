@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="dark" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="head_title">KeepBox - Payment Failed</title>
+<link rel="icon" type="image/svg+xml" href="assets/keepbox-visual-logo.svg">
+<link rel="apple-touch-icon" href="assets/keepbox-visual-logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;700;800&amp;family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "var(--surface-dim)",
+              "surface-variant": "var(--surface-variant)",
+              "inverse-primary": "#006e30",
+              "error-container": "#b92902",
+              "background": "var(--background)",
+              "on-primary-container": "#003915",
+              "secondary-fixed-dim": "#6aecaa",
+              "outline-variant": "var(--outline-variant)",
+              "surface": "var(--surface)",
+              "surface-container-lowest": "var(--surface-container-lowest)",
+              "primary-fixed": "#5dfd8a",
+              "error": "#ff7351",
+              "surface-bright": "var(--surface-bright)",
+              "secondary-fixed": "#79fbb7",
+              "primary": "#25D366",
+              "outline": "#767575",
+              "on-background": "var(--on-background)",
+              "on-primary": "#003915",
+              "surface-tint": "#25D366",
+              "on-primary-fixed-variant": "#00682d",
+              "surface-container-low": "var(--surface-container-low)",
+              "error-dim": "#d53d18",
+              "inverse-on-surface": "#565555",
+              "on-surface": "var(--on-surface)",
+              "primary-fixed-dim": "#4cee7d",
+              "on-tertiary-container": "#004b56",
+              "on-tertiary-fixed-variant": "#005561",
+              "on-tertiary-fixed": "#00363e",
+              "on-error": "#450900",
+              "on-secondary-fixed": "#00492c",
+              "on-secondary-container": "#e1ffe9",
+              "on-secondary": "#005e3a",
+              "secondary-dim": "#6aecaa",
+              "on-primary-fixed": "#00481d",
+              "secondary-container": "#006d44",
+              "on-surface-variant": "var(--on-surface-variant)",
+              "tertiary-dim": "#00d1ed",
+              "primary-dim": "#4cee7d",
+              "on-error-container": "#ffd2c8",
+              "primary-container": "#12cb5f",
+              "inverse-surface": "var(--inverse-surface)",
+              "tertiary-container": "#00e0fe",
+              "surface-container": "var(--surface-container)",
+              "tertiary": "#7ee9ff",
+              "secondary": "#79fbb7",
+              "surface-container-high": "var(--surface-container-high)",
+              "tertiary-fixed": "#00e0fe",
+              "on-secondary-fixed-variant": "#006942",
+              "surface-container-highest": "var(--surface-container-highest)",
+              "on-tertiary": "#005561",
+              "tertiary-fixed-dim": "#00d1ed"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        :root {
+            --background: #0e0e0e;
+            --on-background: #ffffff;
+            --surface: #0e0e0e;
+            --on-surface: #ffffff;
+            --surface-variant: #262626;
+            --on-surface-variant: #adaaaa;
+            --surface-container: #1a1a1a;
+            --surface-container-low: #131313;
+            --surface-container-high: #20201f;
+            --surface-container-highest: #262626;
+            --surface-container-lowest: #000000;
+            --surface-dim: #0e0e0e;
+            --surface-bright: #2c2c2c;
+            --outline-variant: #484847;
+            --inverse-surface: #fcf9f8;
+            --glass-bg: rgba(26, 26, 26, 0.6);
+            --glass-border: rgba(72, 72, 71, 0.3);
+        }
+
+        .light {
+            --background: #f8fafc;
+            --on-background: #0f172a;
+            --surface: #ffffff;
+            --on-surface: #0f172a;
+            --surface-variant: #f1f5f9;
+            --on-surface-variant: #64748b;
+            --surface-container: #ffffff;
+            --surface-container-low: #f8fafc;
+            --surface-container-high: #f1f5f9;
+            --surface-container-highest: #e2e8f0;
+            --surface-container-lowest: #ffffff;
+            --surface-dim: #cbd5e1;
+            --surface-bright: #ffffff;
+            --outline-variant: #e2e8f0;
+            --inverse-surface: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(226, 232, 240, 0.5);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+        .error-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 115, 81, 0.15) 0%, transparent 70%);
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--outline-variant);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--on-surface-variant);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @keyframes page-fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body {
+            animation: page-fade 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-error/30 transition-colors duration-300">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-white/60 dark:bg-neutral-950/60 backdrop-blur-xl border-b border-outline-variant/10">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<a href="https://keepbox.com.sa/" class="flex items-center gap-2">
+    <img src="assets/keepbox-visual-logo.svg" alt="KeepBox Icon" class="h-8">
+    <img src="assets/keepbox-text-logo.svg" alt="KeepBox" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
+</a>
+<div class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight rtl:space-x-reverse">
+<a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#features" data-i18n="nav_features">Features</a>
+<a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#security" data-i18n="nav_security">Security</a>
+<a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#pricing" data-i18n="nav_pricing">Pricing</a>
+<a class="text-neutral-400 hover:text-primary transition-colors" href="index.html#faq" data-i18n="nav_faq">FAQ</a>
+<a class="text-neutral-400 hover:text-primary transition-colors" href="contact-us.html" data-i18n="nav_contact">Contact Us</a>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="toggleLanguage()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group">
+    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">translate</span>
+</button>
+<button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-surface-variant transition-colors flex items-center justify-center group">
+    <span id="theme-icon" class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">dark_mode</span>
+</button>
+<a href="index.html#pricing" class="hidden md:block bg-primary text-on-primary font-headline font-bold px-6 py-2 rounded-full hover:bg-primary-container hover:scale-105 transition-all duration-300 active:scale-95 text-center" data-i18n="btn_get_started">Get Started</a>
+</div>
+</div>
+</header>
+<main class="min-h-screen flex flex-col items-center justify-center pt-20 pb-12 px-4 relative overflow-hidden">
+<!-- Background Atmospheric Element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full error-glow pointer-events-none"></div>
+<!-- Main Content Card -->
+<div class="max-w-xl w-full glass-panel rounded-3xl p-8 md:p-12 text-center relative z-10 shadow-2xl translate-y-0 transition-transform hover:translate-y-[-8px] duration-500">
+<!-- Error Visual Icon -->
+<div class="mb-8 relative inline-block">
+<div class="w-24 h-24 bg-error/10 rounded-full flex items-center justify-center mx-auto ring-1 ring-error/20">
+<span class="material-symbols-outlined text-6xl text-error" data-icon="error_outline">error_outline</span>
+</div>
+<!-- Pulsing ring effect -->
+<div class="absolute inset-0 rounded-full animate-ping bg-error/5 scale-125 opacity-20"></div>
+</div>
+<!-- Header Section -->
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight" data-i18n="title">
+    فشلت عملية الدفع
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl font-medium mb-10 leading-relaxed" data-i18n="subtitle">
+    لم نتمكن من إتمام عملية الدفع. يرجى المحاولة مرة أخرى.
+</p>
+
+<!-- Assistant Guidance (WhatsApp style bubble) -->
+<div class="bg-surface-container-highest p-5 rounded-[0_24px_24px_24px] mb-10 rtl:text-right ltr:text-left rtl:border-r-4 ltr:border-l-4 border-error/50 relative overflow-hidden transition-all duration-300" id="guidance-box">
+<div class="flex items-start gap-4">
+<div class="flex-1">
+<p class="text-on-surface text-sm leading-relaxed" data-i18n="guidance">
+    يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة. قد يكون هناك قيود على بطاقتك أو رصيد غير كافٍ.
+</p>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="support_agent">support_agent</span>
+</div>
+</div>
+<!-- Transaction Details -->
+<div class="mb-10 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10 text-center hidden" id="transaction-details">
+    <div class="text-outline text-xs font-label uppercase tracking-wider mb-1" data-i18n="transaction_id">رقم العملية</div>
+    <div class="text-on-surface font-mono text-sm break-all" id="payment-id-display"></div>
+</div>
+
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row-reverse gap-4 justify-center">
+    <button onclick="handleRetry()" class="flex-1 bg-error hover:bg-error-dim text-white font-headline font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg shadow-error/20 flex items-center justify-center gap-2 group">
+        <span data-i18n="retry_btn">إعادة المحاولة</span>
+        <span class="material-symbols-outlined group-hover:rotate-180 transition-transform" data-icon="refresh">refresh</span>
+    </button>
+    <a id="whatsapp-support-btn" href="https://wa.me/966559962280" class="flex-1 bg-surface-container-high hover:bg-surface-variant text-[#25D366] font-headline font-bold py-4 px-8 rounded-full border border-outline-variant/30 transition-all duration-300 flex items-center justify-center gap-2">
+        <img src="assets/whatsapp-icon.svg" class="w-5 h-5" alt="">
+        <span data-i18n="contact_support">اتصل بالدعم</span>
+    </a>
+</div>
+</div>
+<!-- Security Badge -->
+<div class="mt-12 flex items-center gap-3 text-on-surface-variant/50 font-label text-sm">
+<span class="material-symbols-outlined text-base" data-icon="verified_user">verified_user</span>
+<span data-i18n="security_text">بياناتك محمية بتشفير 256-bit AES</span>
+</div>
+</main>
+<!-- Footer Segment -->
+<footer class="w-full border-t border-outline-variant/10 bg-[#0e0e0e] text-on-surface mt-auto">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-8 py-12 max-w-7xl mx-auto rtl:flex-row-reverse">
+        <div class="flex items-center gap-2">
+            <img src="assets/keepbox-visual-logo.svg" alt="" class="h-8">
+            <img src="assets/keepbox-text-logo.svg" alt="" class="h-6 dark:brightness-100 brightness-0 invert-[0.2] dark:invert-0">
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-widest rtl:flex-row-reverse">
+            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/privacy-policy.html" data-i18n="footer_priv">Privacy Policy</a>
+            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/terms-of-service.html" data-i18n="footer_terms">Terms of Service</a>
+            <a class="text-neutral-500 hover:text-primary transition-colors duration-200" href="https://keepbox.com.sa/contact-us.html" data-i18n="footer_contact">Contact</a>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 py-6 border-t border-neutral-800/50 flex justify-between items-center">
+        <p class="text-sm text-neutral-500" data-i18n="copyright">© 2026 KeepBox. All rights reserved.</p>
+    </div>
+</footer>
+<!-- Imagery/Texture -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20">
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-error rounded-full blur-[150px] mix-blend-soft-light"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-primary rounded-full blur-[200px] mix-blend-overlay"></div>
+</div>
+
+<script>
+    const translations = {
+        ar: {
+            head_title: "KeepBox - فشلت عملية الدفع",
+            title: "فشلت عملية الدفع",
+            subtitle: "لم نتمكن من إتمام عملية الدفع. يرجى المحاولة مرة أخرى.",
+            transaction_id: "رقم العملية",
+            error: "الخطأ",
+            guidance: "يمكنك المحاولة مرة أخرى أو استخدام وسيلة دفع مختلفة. قد يكون هناك قيود على بطاقتك أو رصيد غير كافٍ.",
+            nav_features: "المميزات",
+            nav_security: "الأمان",
+            nav_pricing: "الأسعار",
+            nav_faq: "الأسئلة الشائعة",
+            nav_contact: "اتصل بنا",
+            btn_get_started: "ابدأ الآن",
+            retry_btn: "إعادة المحاولة",
+            other_method_btn: "وسيلة دفع أخرى",
+            security_text: "بياناتك محمية بتشفير 256-bit AES",
+            copyright: "© 2026 KeepBox. جميع الحقوق محفوظة.",
+            legal_label: "القانونية",
+            privacy_policy: "سياسة الخصوصية",
+            terms_of_service: "شروط الخدمة",
+            security_label: "الأمان",
+            security_protocol: "بروتوكول الأمان",
+            system_status: "حالة النظام",
+            support_label: "الدعم",
+            footer_contact: "اتصل بنا",
+            api_docs: "توثيق API"
+        },
+        en: {
+            head_title: "KeepBox - Payment Failed",
+            title: "Payment Failed",
+            subtitle: "We couldn't process your payment. Please try again.",
+            transaction_id: "Transaction ID",
+            error: "Error",
+            guidance: "You can try again or use a different payment method. Your card may have restrictions or insufficient balance.",
+            nav_features: "Features",
+            nav_security: "Security",
+            nav_pricing: "Pricing",
+            nav_faq: "FAQ",
+            nav_contact: "Contact Us",
+            btn_get_started: "Get Started",
+            retry_btn: "Retry Payment",
+            other_method_btn: "Other Payment Method",
+            security_text: "Your data is protected by 256-bit AES encryption",
+            copyright: "© 2026 KeepBox. All rights reserved.",
+            legal_label: "Legal",
+            privacy_policy: "Privacy Policy",
+            terms_of_service: "Terms of Service",
+            security_label: "Security",
+            security_protocol: "Security Protocol",
+            system_status: "System Status",
+            support_label: "Support",
+            footer_contact: "Contact",
+            api_docs: "API Documentation"
+        }
+    };
+
+    let currentLang = localStorage.getItem('keepbox_lang') || 'ar';
+    let currentTheme = localStorage.getItem('keepbox_theme') || 'dark';
+
+    function updateLanguage() {
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = currentLang;
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[currentLang][key]) {
+                el.innerText = translations[currentLang][key];
+            }
+        });
+
+        // Update guidance box border direction
+        const box = document.getElementById('guidance-box');
+        if (currentLang === 'ar') {
+            box.classList.remove('rounded-[24px_0_24px_24px]');
+            box.classList.add('rounded-[0_24px_24px_24px]');
+        } else {
+            box.classList.remove('rounded-[0_24px_24px_24px]');
+            box.classList.add('rounded-[24px_0_24px_24px]');
+        }
+        
+        localStorage.setItem('keepbox_lang', currentLang);
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        updateLanguage();
+    }
+
+    function updateTheme() {
+        const icon = document.getElementById('theme-icon');
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            icon.innerText = 'dark_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            icon.innerText = 'light_mode';
+        }
+        localStorage.setItem('keepbox_theme', currentTheme);
+    }
+
+    function toggleTheme() {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        updateTheme();
+    }
+
+    function initTransactionDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get('id') || urlParams.get('payment_id');
+        
+        if (paymentId) {
+            const detailsBox = document.getElementById('transaction-details');
+            const displayEl = document.getElementById('payment-id-display');
+            displayEl.innerText = paymentId;
+            detailsBox.classList.remove('hidden');
+
+            // Update WhatsApp Support link with the ID
+            const supportBtn = document.getElementById('whatsapp-support-btn');
+            const message = encodeURIComponent(`السلام عليكم، فشلت عملية الدفع الخاصة بي. رقم العملية: ${paymentId}`);
+            supportBtn.href = `https://wa.me/966559962280?text=${message}`;
+        }
+    }
+
+    async function handleRetry() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get('id') || urlParams.get('payment_id');
+        const webhookUrl = "https://n8n.keepbox.sa/webhook/Failed_Payments";
+        
+        const data = {
+            id: paymentId,
+            status: "failed",
+            url: window.location.href,
+            timestamp: new Date().toISOString()
+        };
+
+        try {
+            // Priority 1: Use fetch for standard JSON POST to n8n
+            await fetch(webhookUrl, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            });
+        } catch (e) {
+            console.error("Fetch failed, trying beacon...", e);
+            // Priority 2: Fallback to sendBeacon if fetch fails or is blocked
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon(webhookUrl, JSON.stringify(data));
+            }
+        } finally {
+            // Redirect back to landing page after attempt
+            window.location.href = "https://keepbox.com.sa";
+        }
+    }
+
+    // Initialize
+    updateLanguage();
+    updateTheme();
+    initTransactionDetails();
+</script>
+</body></html>
